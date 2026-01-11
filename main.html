@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- SEO META TAGS -->
+    <title> Cruz Farias Consultoria | ERP Sienge, Power BI e Processos para Construtoras</title>
+    <meta name="description" content="Consultoria especializada em ERP Sienge/TOTVS, Power BI e automação de processos para construtoras. Reduza custos, ganhe controle e escala.">
+    <meta name="keywords" content="ERP Sienge, Power BI construtoras, consultoria construção civil, processos construtoras, BI construção">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Farias Cruz Consultoria | Transformação Digital para Construtoras">
+    <meta property="og:description" content="ERP Sienge, Power BI e automação de processos com foco em resultado.">
+    <meta property="og:type" content="website">
+    
+    <!-- Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": " Cruz Farias Consultoria",
+      "description": "Consultoria em ERP, BI e Processos para Construtoras",
+      "telephone": "+55-16-99194-0396",
+      "areaServed": "BR",
+      "founder": {
+        "@type": "Person",
+        "name": "Gustavo Henrique Farias"
+      }
+    }
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        :root {
+            --primary: #1E3A8A;
+            --secondary: #10B981;
+            --accent: #F59E0B;
+            --bg-dark: #0F172A;
+            --bg-surface: #1E293B;
+            --text-primary: #F1F5F9;
+            --text-secondary: #CBD5E1;
+        }
+        .logo {
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 1.6rem;
+            font-weight: 800;
+            z-index: 101;
+        }
+
+        .logo-main {
+            color: #F1F5F9 !important;
+        }
+
+        .logo-accent {
+            color: #10B981 !important;
+        }
+
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            padding: 0 2rem;
+            margin: 0 auto;
+        }
+
+        /* HEADER */
+        header {
+            position: sticky;
+            top: 0;
+            background: rgba(15,23,42,0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--bg-surface);
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        .cta-button {
+            background: var(--secondary);
+            padding: 0.7rem 1.8rem;
+            border-radius: 50px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(16,185,129,0.4);
+        }
+
+        /* HERO */
+        .hero {
+            padding: 8rem 0 6rem;
+            background:
+                linear-gradient(
+                    rgba(15,23,42,0.85),
+                    rgba(15,23,42,0.85)
+                ),
+                url("images/beautiful-shot-silhouette-crane-sunset.jpg") center/cover no-repeat;
+            text-align: center;
+        }
+
+
+        .hero h1 {
+            font-size: clamp(2.2rem, 4vw, 3.5rem);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            color: var(--text-secondary);
+            max-width: 720px;
+            margin: 0 auto 2.5rem;
+            font-size: 1.1rem;
+        }
+
+        /* SERVICES */
+        section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.4rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--bg-surface);
+            padding: 2rem;
+            border-radius: 16px;
+            transition: 0.3s;
+            border: 1px solid transparent;
+        }
+
+        .card img {
+            width: 100%;
+            max-height: 180px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 1.2rem;
+        }
+
+
+        .card:hover {
+            border-color: var(--secondary);
+            transform: translateY(-6px);
+        }
+
+        .card h3 {
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+
+        /* RESULTS */
+        .results {
+            background: #020617;
+        }
+
+        .numbers {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            text-align: center;
+        }
+
+        .numbers h3 {
+            font-size: 3rem;
+            color: var(--accent);
+        }
+
+        /* ABOUT */
+        .about p {
+            max-width: 900px;
+            margin: auto;
+            color: var(--text-secondary);
+            text-align: center;
+            font-size: 1.1rem;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 380px 1fr;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .about-content img {
+            width: 100%;
+            max-height: 420px;
+            object-fit: cover;
+            border-radius: 20px;
+        }
+
+
+        /* FOOTER */
+        footer {
+            background: #020617;
+            padding: 3rem 0;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* RESPONSIVO */
+        @media (max-width: 768px) {
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .about-content img {
+                max-height: 260px;
+                margin: 0 auto;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="container">
+        <nav>
+            <a href="01.html" class="logo">
+                <span class="logo-main">CRUZ</span>
+                <span class="logo-accent">FARIAS</span>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#resultados">Resultados</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+<section class="hero">
+    <div class="container">
+        <h1>Gestão, Dados e Processos para Construtoras que Querem Escalar</h1>
+        <p>Implementamos ERP Sienge, dashboards Power BI e automação de processos para reduzir custos, ganhar controle financeiro e aumentar a eficiência operacional.</p>
+        <a href="https://wa.me/5516991940396" class="cta-button">Solicitar Diagnóstico</a>
+    </div>
+</section>
+
+<section id="servicos">
+    <div class="container">
+        <div class="section-title">
+            <h2>Serviços Especializados</h2>
+        </div>
+        <div class="grid">
+            <div class="card">
+                <img src="images/7063226.jpg" alt="Dashboard Power BI para Construção">
+                <h3>ERP Sienge / TOTVS</h3>
+                <p>Implantação, reestruturação, plano de contas, processos financeiros, obras e integração com BI.</p>
+            </div>
+            <div class="card">
+                <img src="images/business-leader-trader-searching-new-investment-solution.jpg" alt="Dashboard Power BI para Construção">
+                <h3>Power BI para Construtoras</h3>
+                <p>DRE, fluxo de caixa, viabilidade, orçamento, acompanhamento de obras e indicadores estratégicos.</p>
+            </div>
+            <div class="card">
+                <img src="images/writing-work-process.jpg" alt="Dashboard ERP Sienge">
+                <h3>Mapeamento de Processos</h3>
+                <p>Padronização, automação e ganho de produtividade em áreas administrativas, financeiras e operacionais.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="resultados" class="results">
+    <div class="container">
+        <div class="numbers">
+            <div>
+                <h3>-15%</h3>
+                <p>Redução média de custos</p>
+            </div>
+            <div>
+                <h3>+15h</h3>
+                <p>Tempo liberado por semana</p>
+            </div>
+            <div>
+                <h3>100%</h3>
+                <p>Controle financeiro integrado</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="sobre" class="about">
+    <div class="container">
+        <div class="section-title">
+            <h2>Sobre a Consultoria</h2>
+            <p class="section-subtitle">
+                Tecnologia, dados e processos aplicados à realidade da construção civil
+            </p>
+        </div>
+
+        <div class="about-content">
+            <img 
+                src="images/1000434292-removebg-preview-removebg-preview (1).png" 
+                alt="Engenheiro analisando dados e indicadores em canteiro de obras"
+                loading="lazy"
+            >
+
+            <div class="about-text">
+                <p>
+                    Sou <strong>Gustavo Henrique Farias</strong>, especialista em dados, finanças e sistemas para a
+                    construção civil, com mais de <strong>5 anos de experiência</strong> ajudando construtoras
+                    a ganharem controle, previsibilidade e escala.
+                </p>
+
+                <p>
+                    Minha trajetória começou na <strong>operação de obras</strong>, atuando diretamente com
+                    equipes, prazos e custos. A partir dessa vivência prática, me especializei em
+                    <strong>ERP Sienge, TOTVS e Power BI</strong>, conectando o canteiro de obras ao financeiro
+                    e à diretoria por meio de dados confiáveis.
+                </p>
+
+                <p>
+                    Já gerei resultados como <strong>redução de até 15% em custos ocultos</strong>,
+                    <strong>liberação de mais de 15 horas semanais</strong> com automações e implantação de
+                    <strong>ERPs completos</strong> em incorporadoras e construtoras de médio e grande porte.
+                </p>
+
+                <p>
+                    Hoje, ajudo construtoras a tomarem <strong>decisões em tempo real</strong>, unificando
+                    obras, financeiro e gestão em <strong>dashboards estratégicos</strong>,
+                    com a segurança e a confiabilidade que o setor exige.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<footer>
+    <div class="container">
+        <a href="01.html" class="logo">
+            <span class="logo-main">CRUZ</span>
+            <span class="logo-accent">FARIAS</span>
+        </a>
+        <p>© 2026 Cruz Farias Consultoria · ERP · BI · Processos</p>
+    </div>
+</footer>
+
+
+</body>
+</html>
