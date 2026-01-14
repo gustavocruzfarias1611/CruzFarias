@@ -18,7 +18,7 @@
       "@type": "ProfessionalService",
       "name": " Cruz Farias Consultoria",
       "description": "Consultoria em ERP, BI e Processos para Construtoras",
-      "telephone": "+55-16-991940396",
+      "telephone": "+55-16-99194-0396",
       "areaServed": "BR",
       "founder": {
         "@type": "Person",
@@ -40,23 +40,30 @@
             --text-primary: #F1F5F9;
             --text-secondary: #CBD5E1;
         }
-        .logo {
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 1.6rem;
-            font-weight: 800;
-            z-index: 101;
+        .logo-img {
+            height: 230px;      /* ajuste fino aqui */
+            width: auto;
+            display: block;
         }
 
+
+        /* CRUZ */
         .logo-main {
+            font-size: 1.2rem;           /* ↓ bem menor */
             color: #F1F5F9 !important;
+            letter-spacing: 1px;
         }
 
+        /* FARIAS */
         .logo-accent {
-            color: #10B981 !important;
+            font-size: 0.7rem;           /* ↓ reduz altura */
+            color: #CBD5E1 !important;
+            letter-spacing: 3px;
+            font-weight: 500;
         }
+
+
+
 
 
 
@@ -242,16 +249,21 @@
 
 
         /* FOOTER */
-        footer {
-            background: #020617;
-            padding: 3rem 0;
-            text-align: center;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;   /* 🔑 centraliza logo */
+            gap: 1rem;
         }
+
+        .footer-logo {
+            height: 200px;
+        }
+
 
         /* RESPONSIVO */
         @media (max-width: 768px) {
+
             .about-content {
                 grid-template-columns: 1fr;
                 text-align: center;
@@ -261,7 +273,18 @@
                 max-height: 260px;
                 margin: 0 auto;
             }
+
+            .logo-main {
+                font-size: 1.5rem;
+            }
+
+            .logo-accent {
+                font-size: 0.95rem;
+                letter-spacing: 3px;
+            }
         }
+
+        
 
     </style>
 </head>
@@ -271,10 +294,14 @@
 <header>
     <div class="container">
         <nav>
-            <a href="01.html" class="logo">
-                <span class="logo-main">CRUZ</span>
-                <span class="logo-accent">FARIAS</span>
+            <a href="/" class="logo">
+                <img 
+                    src="ChatGPT_Image_Jan_13__2026__08_47_24_PM-removebg-preview.png"
+                    alt="Cruz Farias"
+                    class="logo-img"
+                >
             </a>
+
 
             <ul class="nav-links">
                 <li><a href="#servicos">Serviços</a></li>
@@ -386,18 +413,19 @@
 
 
 <footer>
-    <div class="container">
-        <a href="01.html" class="logo">
-            <span class="logo-main">CRUZ</span>
-            <span class="logo-accent">FARIAS</span>
+    <div class="container footer-content">
+        <a href="/" class="logo">
+            <img 
+                src="ChatGPT_Image_Jan_13__2026__08_47_24_PM-removebg-preview.png"
+                alt="Cruz Farias Consultoria"
+                class="logo-img footer-logo"
+            >
         </a>
         <p>© 2026 Cruz Farias Consultoria · ERP · BI · Processos</p>
     </div>
 </footer>
 
 
+
 </body>
 </html>
-
-
-
