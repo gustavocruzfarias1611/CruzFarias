@@ -1,431 +1,1215 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <!-- SEO META TAGS -->
-    <title> Cruz Farias Consultoria | ERP Sienge, Power BI e Processos para Construtoras</title>
-    <meta name="description" content="Consultoria especializada em ERP Sienge/TOTVS, Power BI e automação de processos para construtoras. Reduza custos, ganhe controle e escala.">
-    <meta name="keywords" content="ERP Sienge, Power BI construtoras, consultoria construção civil, processos construtoras, BI construção">
-    
-    <!-- Open Graph -->
-    <meta property="og:title" content="Farias Cruz Consultoria | Transformação Digital para Construtoras">
-    <meta property="og:description" content="ERP Sienge, Power BI e automação de processos com foco em resultado.">
-    <meta property="og:type" content="website">
-    
-    <!-- Schema -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      "name": " Cruz Farias Consultoria",
-      "description": "Consultoria em ERP, BI e Processos para Construtoras",
-      "telephone": "+55-16-99194-0396",
-      "areaServed": "BR",
-      "founder": {
-        "@type": "Person",
-        "name": "Gustavo Henrique Farias"
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO -->
+  <title>Cruz Farias Consultoria | ERP, WMS, Power BI e Processos para Construtoras</title>
+  <meta name="description" content="Consultoria especializada em ERP Sienge, TOTVS, Sankhya, WMS Senior, Power BI, controle financeiro, viabilidade, orçamento, obras e automação para construtoras." />
+  <meta name="keywords" content="ERP Sienge, TOTVS, Sankhya, WMS Senior, Power BI, BI para construtoras, processos construtoras, orçamento de obras, viabilidade imobiliária, automação de processos" />
+  <meta name="author" content="Cruz Farias Consultoria" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Cruz Farias Consultoria | Sistemas, Dados e Processos para Construtoras" />
+  <meta property="og:description" content="ERP, WMS, Power BI, controle financeiro, viabilidade, orçamento, obras e automação com foco em eficiência operacional." />
+  <meta property="og:type" content="website" />
+
+  <!-- Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Cruz Farias Consultoria",
+    "description": "Consultoria em ERP, WMS, Power BI, processos, controle financeiro e automação para construtoras.",
+    "telephone": "+55-16-99194-0396",
+    "areaServed": "BR",
+    "founder": {
+      "@type": "Person",
+      "name": "Gustavo Henrique Farias"
+    },
+    "serviceType": [
+      "ERP Sienge",
+      "TOTVS",
+      "Sankhya",
+      "WMS Senior",
+      "Power BI",
+      "Processos para Construtoras",
+      "Controle Financeiro",
+      "Viabilidade Imobiliária",
+      "Orçamento de Obras",
+      "Automação de Processos"
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg: #060914;
+      --bg-2: #0b1020;
+      --surface: rgba(15, 23, 42, 0.82);
+      --surface-2: rgba(30, 41, 59, 0.72);
+      --surface-3: rgba(2, 6, 23, 0.88);
+      --border: rgba(148, 163, 184, 0.18);
+      --border-strong: rgba(16, 185, 129, 0.45);
+      --text: #f8fafc;
+      --muted: #cbd5e1;
+      --soft: #94a3b8;
+      --primary: #10b981;
+      --primary-2: #34d399;
+      --gold: #f59e0b;
+      --blue: #3b82f6;
+      --danger: #ef4444;
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+      --radius: 26px;
+      --max: 1220px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Inter, "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(16, 185, 129, 0.16), transparent 32%),
+        radial-gradient(circle at 80% 10%, rgba(59, 130, 246, 0.13), transparent 34%),
+        linear-gradient(180deg, #050816 0%, #0b1020 48%, #060914 100%);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(148, 163, 184, 0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(148, 163, 184, 0.045) 1px, transparent 1px);
+      background-size: 52px 52px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.75), transparent 78%);
+      z-index: -1;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.46rem 0.82rem;
+      border: 1px solid rgba(16, 185, 129, 0.32);
+      border-radius: 999px;
+      color: var(--primary-2);
+      background: rgba(16, 185, 129, 0.08);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--primary-2);
+      box-shadow: 0 0 22px var(--primary-2);
+    }
+
+    .section-head {
+      max-width: 820px;
+      margin-bottom: 3rem;
+    }
+
+    .section-head.center {
+      text-align: center;
+      margin-inline: auto;
+    }
+
+    .section-head h2 {
+      margin-top: 1rem;
+      font-size: clamp(2rem, 4vw, 3.15rem);
+      line-height: 1.08;
+      letter-spacing: -0.05em;
+    }
+
+    .section-head p {
+      margin-top: 1rem;
+      color: var(--muted);
+      font-size: 1.06rem;
+    }
+
+    .text-gradient {
+      background: linear-gradient(90deg, #ffffff, #34d399 45%, #f59e0b);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(6, 9, 20, 0.72);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      min-height: 86px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      min-width: max-content;
+    }
+
+    .brand-mark {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      background:
+        linear-gradient(135deg, rgba(16,185,129,0.22), rgba(245,158,11,0.2)),
+        rgba(15,23,42,0.88);
+      border: 1px solid rgba(255,255,255,0.16);
+      box-shadow: 0 15px 40px rgba(16,185,129,0.18);
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: -0.06em;
+    }
+
+    .brand-text strong {
+      display: block;
+      font-size: 1.02rem;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-text span {
+      display: block;
+      color: var(--soft);
+      font-size: 0.76rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.4rem;
+      list-style: none;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .nav-links a {
+      transition: 0.25s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary-2);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      min-height: 48px;
+      padding: 0.78rem 1.25rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-weight: 800;
+      transition: 0.25s ease;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #10b981, #34d399);
+      color: #03110c;
+      box-shadow: 0 20px 45px rgba(16, 185, 129, 0.24);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 28px 70px rgba(16, 185, 129, 0.33);
+    }
+
+    .btn-ghost {
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
+      border-color: var(--border);
+    }
+
+    .btn-ghost:hover {
+      border-color: rgba(16,185,129,0.45);
+      background: rgba(16,185,129,0.08);
+      transform: translateY(-3px);
+    }
+
+    .menu-btn {
+      display: none;
+      width: 46px;
+      height: 46px;
+      border-radius: 15px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
+      font-size: 1.35rem;
+    }
+
+    .hero {
+      position: relative;
+      padding: 7.5rem 0 5.5rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .hero h1 {
+      margin-top: 1.1rem;
+      font-size: clamp(2.55rem, 5.4vw, 5.35rem);
+      line-height: 0.98;
+      letter-spacing: -0.075em;
+      max-width: 880px;
+    }
+
+    .hero p {
+      margin-top: 1.5rem;
+      max-width: 690px;
+      color: var(--muted);
+      font-size: 1.12rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 2.1rem;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin-top: 2rem;
+    }
+
+    .tag {
+      padding: 0.5rem 0.72rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.045);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.84rem;
+      font-weight: 700;
+    }
+
+    .hero-panel {
+      position: relative;
+      border-radius: 34px;
+      border: 1px solid rgba(255,255,255,0.13);
+      background:
+        linear-gradient(160deg, rgba(15,23,42,0.92), rgba(2,6,23,0.82)),
+        radial-gradient(circle at 20% 10%, rgba(16,185,129,0.2), transparent 40%);
+      box-shadow: var(--shadow);
+      padding: 1.15rem;
+      overflow: hidden;
+    }
+
+    .hero-panel::before {
+      content: "";
+      position: absolute;
+      inset: -2px;
+      background: linear-gradient(135deg, rgba(16,185,129,0.34), transparent 35%, rgba(245,158,11,0.24));
+      opacity: 0.6;
+      pointer-events: none;
+    }
+
+    .dashboard {
+      position: relative;
+      z-index: 1;
+      border-radius: 26px;
+      background: rgba(2,6,23,0.82);
+      border: 1px solid rgba(255,255,255,0.11);
+      padding: 1.15rem;
+    }
+
+    .dash-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .dash-title strong {
+      display: block;
+      font-size: 1rem;
+    }
+
+    .dash-title span {
+      color: var(--soft);
+      font-size: 0.78rem;
+    }
+
+    .status {
+      padding: 0.38rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(16,185,129,0.12);
+      border: 1px solid rgba(16,185,129,0.32);
+      color: var(--primary-2);
+      font-size: 0.75rem;
+      font-weight: 900;
+    }
+
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+    }
+
+    .kpi {
+      padding: 0.95rem;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.045);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .kpi span {
+      display: block;
+      color: var(--soft);
+      font-size: 0.72rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .kpi strong {
+      font-size: 1.15rem;
+      letter-spacing: -0.03em;
+    }
+
+    .chart-card {
+      margin-top: 0.8rem;
+      padding: 1rem;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .bars {
+      height: 190px;
+      display: flex;
+      align-items: end;
+      gap: 0.65rem;
+      padding-top: 1rem;
+    }
+
+    .bar {
+      flex: 1;
+      min-width: 18px;
+      border-radius: 12px 12px 4px 4px;
+      background: linear-gradient(180deg, #34d399, rgba(16,185,129,0.18));
+      position: relative;
+      animation: grow 1.2s ease both;
+    }
+
+    .bar:nth-child(2), .bar:nth-child(5), .bar:nth-child(8) {
+      background: linear-gradient(180deg, #f59e0b, rgba(245,158,11,0.18));
+    }
+
+    @keyframes grow {
+      from { height: 20px; opacity: 0.3; }
+    }
+
+    .systems-row {
+      margin-top: 0.85rem;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.65rem;
+    }
+
+    .sys {
+      padding: 0.8rem 0.6rem;
+      text-align: center;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--muted);
+      font-weight: 900;
+      font-size: 0.78rem;
+    }
+
+    section {
+      padding: 5.5rem 0;
+    }
+
+    .logos-strip {
+      padding: 1.2rem 0 0;
+    }
+
+    .strip-box {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0.8rem;
+      padding: 1rem;
+      border-radius: 24px;
+      background: rgba(255,255,255,0.035);
+      border: 1px solid var(--border);
+    }
+
+    .strip-item {
+      min-height: 70px;
+      display: grid;
+      place-items: center;
+      border-radius: 18px;
+      background: rgba(15,23,42,0.75);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--muted);
+      font-weight: 900;
+      letter-spacing: -0.02em;
+    }
+
+    .grid {
+      display: grid;
+      gap: 1.25rem;
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .grid-4 {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .card {
+      position: relative;
+      overflow: hidden;
+      padding: 1.55rem;
+      border-radius: var(--radius);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      box-shadow: 0 18px 60px rgba(0,0,0,0.18);
+      transition: 0.25s ease;
+    }
+
+    .card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, rgba(16,185,129,0.12), transparent 42%);
+      opacity: 0;
+      transition: 0.25s ease;
+      pointer-events: none;
+    }
+
+    .card:hover {
+      transform: translateY(-7px);
+      border-color: rgba(16,185,129,0.42);
+    }
+
+    .card:hover::after {
+      opacity: 1;
+    }
+
+    .icon {
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      border-radius: 18px;
+      background: rgba(16,185,129,0.1);
+      border: 1px solid rgba(16,185,129,0.24);
+      color: var(--primary-2);
+      font-size: 1.45rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .card h3 {
+      font-size: 1.18rem;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.03em;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .card ul {
+      margin-top: 1rem;
+      list-style: none;
+      display: grid;
+      gap: 0.55rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .card li {
+      display: flex;
+      gap: 0.55rem;
+    }
+
+    .card li::before {
+      content: "✓";
+      color: var(--primary-2);
+      font-weight: 900;
+    }
+
+    .process {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1rem;
+      counter-reset: step;
+    }
+
+    .step {
+      counter-increment: step;
+      padding: 1.35rem;
+      border-radius: 24px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      position: relative;
+    }
+
+    .step::before {
+      content: "0" counter(step);
+      display: inline-flex;
+      margin-bottom: 1rem;
+      color: var(--gold);
+      font-weight: 900;
+      letter-spacing: 0.08em;
+    }
+
+    .step h3 {
+      font-size: 1rem;
+      margin-bottom: 0.55rem;
+    }
+
+    .step p {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .results {
+      background: linear-gradient(180deg, rgba(2,6,23,0.62), rgba(15,23,42,0.38));
+      border-block: 1px solid var(--border);
+    }
+
+    .metric {
+      text-align: center;
+    }
+
+    .metric strong {
+      display: block;
+      font-size: clamp(2.1rem, 4vw, 3.4rem);
+      line-height: 1;
+      color: var(--gold);
+      letter-spacing: -0.06em;
+    }
+
+    .metric span {
+      display: block;
+      margin-top: 0.7rem;
+      color: var(--muted);
+    }
+
+    .note {
+      margin-top: 1.5rem;
+      color: var(--soft);
+      text-align: center;
+      font-size: 0.86rem;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 0.92fr 1.08fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .profile-card {
+      padding: 1.6rem;
+      border-radius: 30px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+    }
+
+    .profile-photo {
+      min-height: 430px;
+      border-radius: 24px;
+      background:
+        linear-gradient(180deg, rgba(16,185,129,0.14), rgba(2,6,23,0.1)),
+        url("images/1000434292-removebg-preview-removebg-preview (1).png") center/cover no-repeat;
+      border: 1px solid rgba(255,255,255,0.09);
+    }
+
+    .about-text p + p {
+      margin-top: 1rem;
+    }
+
+    .about-text p {
+      color: var(--muted);
+      font-size: 1.02rem;
+    }
+
+    .about-text strong {
+      color: var(--text);
+    }
+
+    .cta-section {
+      padding-bottom: 6.5rem;
+    }
+
+    .cta-box {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(2rem, 5vw, 4rem);
+      border-radius: 36px;
+      background:
+        linear-gradient(135deg, rgba(16,185,129,0.16), rgba(59,130,246,0.09)),
+        rgba(15,23,42,0.82);
+      border: 1px solid rgba(16,185,129,0.24);
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .cta-box h2 {
+      font-size: clamp(2rem, 4vw, 3.35rem);
+      line-height: 1.05;
+      letter-spacing: -0.06em;
+      max-width: 850px;
+    }
+
+    .cta-box p {
+      margin-top: 1rem;
+      color: var(--muted);
+      max-width: 730px;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 0;
+      background: rgba(2,6,23,0.74);
+    }
+
+    .footer-grid {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      color: var(--soft);
+      font-size: 0.92rem;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 90;
+      width: 58px;
+      height: 58px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #10b981, #34d399);
+      color: #03110c;
+      font-size: 1.55rem;
+      box-shadow: 0 18px 45px rgba(16,185,129,0.36);
+      transition: 0.25s ease;
+    }
+
+    .whatsapp-float:hover {
+      transform: translateY(-4px) scale(1.03);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 1050px) {
+      .hero-grid,
+      .split,
+      .cta-box {
+        grid-template-columns: 1fr;
+      }
+
+      .grid-4,
+      .process {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .grid-3 {
+        grid-template-columns: repeat(2, 1fr);
       }
     }
-    </script>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @media (max-width: 820px) {
+      .menu-btn {
+        display: inline-grid;
+        place-items: center;
+      }
 
-    <style>
-        :root {
-            --primary: #1E3A8A;
-            --secondary: #10B981;
-            --accent: #F59E0B;
-            --bg-dark: #0F172A;
-            --bg-surface: #1E293B;
-            --text-primary: #F1F5F9;
-            --text-secondary: #CBD5E1;
-        }
-        .logo-img {
-            height: 230px;      /* ajuste fino aqui */
-            width: auto;
-            display: block;
-        }
+      .nav-links {
+        position: fixed;
+        top: 86px;
+        left: 20px;
+        right: 20px;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 1rem;
+        border-radius: 22px;
+        background: rgba(15,23,42,0.97);
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow);
+      }
 
+      .nav-links.open {
+        display: flex;
+      }
 
-        /* CRUZ */
-        .logo-main {
-            font-size: 1.2rem;           /* ↓ bem menor */
-            color: #F1F5F9 !important;
-            letter-spacing: 1px;
-        }
+      .nav-links a {
+        display: block;
+        padding: 0.8rem;
+      }
 
-        /* FARIAS */
-        .logo-accent {
-            font-size: 0.7rem;           /* ↓ reduz altura */
-            color: #CBD5E1 !important;
-            letter-spacing: 3px;
-            font-weight: 500;
-        }
+      .nav-cta {
+        display: none;
+      }
 
+      .hero {
+        padding-top: 5.2rem;
+      }
 
+      .strip-box,
+      .systems-row {
+        grid-template-columns: repeat(2, 1fr);
+      }
 
+      .kpi-grid,
+      .grid-3,
+      .grid-4,
+      .process {
+        grid-template-columns: 1fr;
+      }
 
+      .profile-photo {
+        min-height: 310px;
+      }
 
+      .footer-grid {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    @media (max-width: 520px) {
+      .container {
+        width: min(100% - 28px, var(--max));
+      }
 
-        body {
-            font-family: 'Segoe UI', system-ui, sans-serif;
-            background: var(--bg-dark);
-            color: var(--text-primary);
-            line-height: 1.6;
-        }
+      .hero-actions {
+        flex-direction: column;
+      }
 
-        .container {
-            max-width: 1200px;
-            padding: 0 2rem;
-            margin: 0 auto;
-        }
+      .btn {
+        width: 100%;
+      }
 
-        /* HEADER */
-        header {
-            position: sticky;
-            top: 0;
-            background: rgba(15,23,42,0.95);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--bg-surface);
-            z-index: 100;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-        }
-
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-secondary);
-            transition: 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--secondary);
-        }
-
-        .cta-button {
-            background: var(--secondary);
-            padding: 0.7rem 1.8rem;
-            border-radius: 50px;
-            color: #fff;
-            text-decoration: none;
-            font-weight: 600;
-            transition: 0.3s;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(16,185,129,0.4);
-        }
-
-        /* HERO */
-        .hero {
-            padding: 8rem 0 6rem;
-            background:
-                linear-gradient(
-                    rgba(15,23,42,0.85),
-                    rgba(15,23,42,0.85)
-                ),
-                url("images/beautiful-shot-silhouette-crane-sunset.jpg") center/cover no-repeat;
-            text-align: center;
-        }
-
-
-        .hero h1 {
-            font-size: clamp(2.2rem, 4vw, 3.5rem);
-            margin-bottom: 1.5rem;
-        }
-
-        .hero p {
-            color: var(--text-secondary);
-            max-width: 720px;
-            margin: 0 auto 2.5rem;
-            font-size: 1.1rem;
-        }
-
-        /* SERVICES */
-        section {
-            padding: 5rem 0;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .section-title h2 {
-            font-size: 2.4rem;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 2rem;
-        }
-
-        .card {
-            background: var(--bg-surface);
-            padding: 2rem;
-            border-radius: 16px;
-            transition: 0.3s;
-            border: 1px solid transparent;
-        }
-
-        .card img {
-            width: 100%;
-            max-height: 180px;
-            object-fit: cover;
-            border-radius: 12px;
-            margin-bottom: 1.2rem;
-        }
-
-
-        .card:hover {
-            border-color: var(--secondary);
-            transform: translateY(-6px);
-        }
-
-        .card h3 {
-            margin-bottom: 1rem;
-            color: var(--secondary);
-        }
-
-        /* RESULTS */
-        .results {
-            background: #020617;
-        }
-
-        .numbers {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 3rem;
-            text-align: center;
-        }
-
-        .numbers h3 {
-            font-size: 3rem;
-            color: var(--accent);
-        }
-
-        /* ABOUT */
-        .about p {
-            max-width: 900px;
-            margin: auto;
-            color: var(--text-secondary);
-            text-align: center;
-            font-size: 1.1rem;
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 380px 1fr;
-            gap: 2.5rem;
-            align-items: center;
-        }
-
-        .about-content img {
-            width: 100%;
-            max-height: 420px;
-            object-fit: cover;
-            border-radius: 20px;
-        }
-
-
-        /* FOOTER */
-        .footer-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;   /* 🔑 centraliza logo */
-            gap: 1rem;
-        }
-
-        .footer-logo {
-            height: 200px;
-        }
-
-
-        /* RESPONSIVO */
-        @media (max-width: 768px) {
-
-            .about-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .about-content img {
-                max-height: 260px;
-                margin: 0 auto;
-            }
-
-            .logo-main {
-                font-size: 1.5rem;
-            }
-
-            .logo-accent {
-                font-size: 0.95rem;
-                letter-spacing: 3px;
-            }
-        }
-
-        
-
-    </style>
+      .brand-text span {
+        display: none;
+      }
+    }
+  </style>
 </head>
-
 <body>
-
-<header>
+  <header>
     <div class="container">
-        <nav>
-            <a href="/" class="logo">
-                <img 
-                    src="ChatGPT_Image_Jan_13__2026__08_47_24_PM-removebg-preview.png"
-                    alt="Cruz Farias"
-                    class="logo-img"
-                >
-            </a>
-
-
-            <ul class="nav-links">
-                <li><a href="#servicos">Serviços</a></li>
-                <li><a href="#resultados">Resultados</a></li>
-                <li><a href="#sobre">Sobre</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
-
-
-<section class="hero">
-    <div class="container">
-        <h1>Gestão, Dados e Processos para Construtoras que Querem Escalar</h1>
-        <p>Implementamos ERP Sienge, dashboards Power BI e automação de processos para reduzir custos, ganhar controle financeiro e aumentar a eficiência operacional.</p>
-        <a href="https://wa.me/5516991940396" class="cta-button">Solicitar Diagnóstico</a>
-    </div>
-</section>
-
-<section id="servicos">
-    <div class="container">
-        <div class="section-title">
-            <h2>Serviços Especializados</h2>
-        </div>
-        <div class="grid">
-            <div class="card">
-                <img src="images/7063226.jpg" alt="Dashboard Power BI para Construção">
-                <h3>ERP Sienge / TOTVS</h3>
-                <p>Implantação, reestruturação, plano de contas, processos financeiros, obras e integração com BI.</p>
-            </div>
-            <div class="card">
-                <img src="images/business-leader-trader-searching-new-investment-solution.jpg" alt="Dashboard Power BI para Construção">
-                <h3>Power BI para Construtoras</h3>
-                <p>DRE, fluxo de caixa, viabilidade, orçamento, acompanhamento de obras e indicadores estratégicos.</p>
-            </div>
-            <div class="card">
-                <img src="images/writing-work-process.jpg" alt="Dashboard ERP Sienge">
-                <h3>Mapeamento de Processos</h3>
-                <p>Padronização, automação e ganho de produtividade em áreas administrativas, financeiras e operacionais.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="resultados" class="results">
-    <div class="container">
-        <div class="numbers">
-            <div>
-                <h3>-15%</h3>
-                <p>Redução média de custos</p>
-            </div>
-            <div>
-                <h3>+15h</h3>
-                <p>Tempo liberado por semana</p>
-            </div>
-            <div>
-                <h3>100%</h3>
-                <p>Controle financeiro integrado</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="sobre" class="about">
-    <div class="container">
-        <div class="section-title">
-            <h2>Sobre a Consultoria</h2>
-            <p class="section-subtitle">
-                Tecnologia, dados e processos aplicados à realidade da construção civil
-            </p>
-        </div>
-
-        <div class="about-content">
-            <img 
-                src="images/1000434292-removebg-preview-removebg-preview (1).png" 
-                alt="Engenheiro analisando dados e indicadores em canteiro de obras"
-                loading="lazy"
-            >
-
-            <div class="about-text">
-                <p>
-                    Sou <strong>Gustavo Henrique Farias</strong>, especialista em dados, finanças e sistemas para a
-                    construção civil, com mais de <strong>5 anos de experiência</strong> ajudando construtoras
-                    a ganharem controle, previsibilidade e escala.
-                </p>
-
-                <p>
-                    Minha trajetória começou na <strong>operação de obras</strong>, atuando diretamente com
-                    equipes, prazos e custos. A partir dessa vivência prática, me especializei em
-                    <strong>ERP Sienge, TOTVS e Power BI</strong>, conectando o canteiro de obras ao financeiro
-                    e à diretoria por meio de dados confiáveis.
-                </p>
-
-                <p>
-                    Já gerei resultados como <strong>redução de até 15% em custos ocultos</strong>,
-                    <strong>liberação de mais de 15 horas semanais</strong> com automações e implantação de
-                    <strong>ERPs completos</strong> em incorporadoras e construtoras de médio e grande porte.
-                </p>
-
-                <p>
-                    Hoje, ajudo construtoras a tomarem <strong>decisões em tempo real</strong>, unificando
-                    obras, financeiro e gestão em <strong>dashboards estratégicos</strong>,
-                    com a segurança e a confiabilidade que o setor exige.
-                </p>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-<footer>
-    <div class="container footer-content">
-        <a href="/" class="logo">
-            <img 
-                src="ChatGPT_Image_Jan_13__2026__08_47_24_PM-removebg-preview.png"
-                alt="Cruz Farias Consultoria"
-                class="logo-img footer-logo"
-            >
+      <nav class="nav">
+        <a href="#inicio" class="brand" aria-label="Cruz Farias Consultoria">
+          <div class="brand-mark">CF</div>
+          <div class="brand-text">
+            <strong>Cruz Farias Consultoria</strong>
+            <span>ERP · WMS · BI · Processos</span>
+          </div>
         </a>
-        <p>© 2026 Cruz Farias Consultoria · ERP · BI · Processos</p>
+
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#metodologia">Metodologia</a></li>
+          <li><a href="#resultados">Resultados</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+        </ul>
+
+        <a class="btn btn-primary nav-cta" href="https://wa.me/5516991940396" target="_blank" rel="noopener">Solicitar diagnóstico</a>
+        <button class="menu-btn" id="menuBtn" aria-label="Abrir menu">☰</button>
+      </nav>
     </div>
-</footer>
+  </header>
 
+  <main id="inicio">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <span class="eyebrow">Consultoria para construtoras e operações complexas</span>
+          <h1>Transformamos <span class="text-gradient">sistemas, dados e processos</span> em controle operacional.</h1>
+          <p>
+            Implantação, reestruturação e governança de ERP Sienge, TOTVS, Sankhya, WMS Senior,
+            Power BI, controle financeiro, viabilidade, orçamento de obras e automação de rotinas críticas.
+          </p>
 
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://wa.me/5516991940396" target="_blank" rel="noopener">Quero um diagnóstico</a>
+            <a class="btn btn-ghost" href="#servicos">Ver especialidades</a>
+          </div>
 
+          <div class="hero-tags" aria-label="Especialidades">
+            <span class="tag">ERP Sienge</span>
+            <span class="tag">TOTVS</span>
+            <span class="tag">WMS Senior</span>
+            <span class="tag">Sankhya</span>
+            <span class="tag">Power BI</span>
+            <span class="tag">Viabilidade</span>
+            <span class="tag">Orçamento</span>
+            <span class="tag">Automação</span>
+          </div>
+        </div>
+
+        <div class="hero-panel reveal" aria-label="Painel executivo ilustrativo">
+          <div class="dashboard">
+            <div class="dash-top">
+              <div class="dash-title">
+                <strong>Executive Operations Cockpit</strong>
+                <span>Financeiro · Obras · ERP · BI</span>
+              </div>
+              <div class="status">ONLINE</div>
+            </div>
+
+            <div class="kpi-grid">
+              <div class="kpi">
+                <span>Controle financeiro</span>
+                <strong>100%</strong>
+              </div>
+              <div class="kpi">
+                <span>Horas liberadas</span>
+                <strong>+15h</strong>
+              </div>
+              <div class="kpi">
+                <span>Custo oculto</span>
+                <strong>-15%</strong>
+              </div>
+            </div>
+
+            <div class="chart-card">
+              <div class="dash-top">
+                <div class="dash-title">
+                  <strong>Fluxo, orçamento e realizado</strong>
+                  <span>Visão executiva por centro de custo</span>
+                </div>
+              </div>
+              <div class="bars" aria-hidden="true">
+                <div class="bar" style="height: 45%"></div>
+                <div class="bar" style="height: 72%"></div>
+                <div class="bar" style="height: 58%"></div>
+                <div class="bar" style="height: 84%"></div>
+                <div class="bar" style="height: 68%"></div>
+                <div class="bar" style="height: 92%"></div>
+                <div class="bar" style="height: 63%"></div>
+                <div class="bar" style="height: 78%"></div>
+              </div>
+            </div>
+
+            <div class="systems-row">
+              <div class="sys">SIENGE</div>
+              <div class="sys">TOTVS</div>
+              <div class="sys">WMS</div>
+              <div class="sys">BI</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container logos-strip reveal">
+      <div class="strip-box">
+        <div class="strip-item">ERP Sienge</div>
+        <div class="strip-item">TOTVS</div>
+        <div class="strip-item">Sankhya</div>
+        <div class="strip-item">WMS Senior</div>
+        <div class="strip-item">Power BI</div>
+      </div>
+    </div>
+
+    <section id="servicos">
+      <div class="container">
+        <div class="section-head center reveal">
+          <span class="eyebrow">Especialidades</span>
+          <h2>Uma consultoria para conectar <span class="text-gradient">operação, financeiro e diretoria</span>.</h2>
+          <p>Atuação completa para construtoras que precisam padronizar processos, estruturar dados confiáveis e transformar sistemas em gestão real.</p>
+        </div>
+
+        <div class="grid grid-3">
+          <article class="card reveal">
+            <div class="icon">🏗️</div>
+            <h3>ERP Sienge, TOTVS e Sankhya</h3>
+            <p>Implantação, saneamento, parametrização, plano de contas, centros de custo, aprovações, compras, financeiro e integrações.</p>
+            <ul>
+              <li>AS-IS e TO-BE dos processos</li>
+              <li>Governança de cadastros</li>
+              <li>Treinamento e adoção operacional</li>
+            </ul>
+          </article>
+
+          <article class="card reveal">
+            <div class="icon">📦</div>
+            <h3>WMS Senior e Operações Logísticas</h3>
+            <p>Estruturação de processos de recebimento, armazenagem, picking, expedição, etiquetas, inventário e rastreabilidade operacional.</p>
+            <ul>
+              <li>Fluxos de recebimento e expedição</li>
+              <li>Padronização de movimentações</li>
+              <li>Indicadores de produtividade</li>
+            </ul>
+          </article>
+
+          <article class="card reveal">
+            <div class="icon">📊</div>
+            <h3>Power BI Executivo</h3>
+            <p>Dashboards estratégicos para DRE, fluxo de caixa, orçamento, realizado, viabilidade, obras, suprimentos e performance operacional.</p>
+            <ul>
+              <li>Modelagem de dados</li>
+              <li>Indicadores financeiros e operacionais</li>
+              <li>Painéis para diretoria</li>
+            </ul>
+          </article>
+
+          <article class="card reveal">
+            <div class="icon">💰</div>
+            <h3>Controle Financeiro</h3>
+            <p>Organização de contas a pagar, contas a receber, conciliação, fluxo de caixa, saldos bancários, projeções e visão gerencial.</p>
+            <ul>
+              <li>Fluxo de caixa projetado</li>
+              <li>Orçado x realizado</li>
+              <li>DRE gerencial</li>
+            </ul>
+          </article>
+
+          <article class="card reveal">
+            <div class="icon">📐</div>
+            <h3>Viabilidade e Orçamento de Obras</h3>
+            <p>Estruturação de VGV, custos, RET, margem, lucro, permutas, curva de vendas, curva de desembolso e indicadores por m².</p>
+            <ul>
+              <li>Análise de rentabilidade</li>
+              <li>Orçamento mês a mês</li>
+              <li>Indicadores por empreendimento</li>
+            </ul>
+          </article>
+
+          <article class="card reveal">
+            <div class="icon">⚙️</div>
+            <h3>Automação de Processos</h3>
+            <p>Automação de rotinas manuais, integração entre sistemas, melhoria de produtividade, redução de retrabalho e padronização operacional.</p>
+            <ul>
+              <li>Integrações via API</li>
+              <li>Rotinas Python e ETL</li>
+              <li>Redução de tarefas repetitivas</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="metodologia">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Método de trabalho</span>
+          <h2>Da análise do processo até o dashboard executivo.</h2>
+          <p>Uma jornada estruturada para sair do operacional desorganizado e chegar em uma gestão integrada, auditável e orientada por dados.</p>
+        </div>
+
+        <div class="process">
+          <div class="step reveal">
+            <h3>Diagnóstico</h3>
+            <p>Levantamento dos sistemas, gargalos, cadastros, processos, controles paralelos e dores da operação.</p>
+          </div>
+          <div class="step reveal">
+            <h3>Mapeamento</h3>
+            <p>Desenho AS-IS e TO-BE com áreas envolvidas, responsáveis, riscos, aprovações e pontos de controle.</p>
+          </div>
+          <div class="step reveal">
+            <h3>Estruturação</h3>
+            <p>Parametrização de ERP, WMS, centros de custo, plano financeiro, orçamento, cadastros e regras de negócio.</p>
+          </div>
+          <div class="step reveal">
+            <h3>Automação e BI</h3>
+            <p>Criação de integrações, bases tratadas, indicadores, dashboards e rotinas de atualização confiáveis.</p>
+          </div>
+          <div class="step reveal">
+            <h3>Governança</h3>
+            <p>Treinamento, documentação, rotina de acompanhamento, melhoria contínua e gestão de indicadores.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="resultados" class="results">
+      <div class="container">
+        <div class="section-head center reveal">
+          <span class="eyebrow">Impacto esperado</span>
+          <h2>Resultado prático para empresas que precisam de controle e escala.</h2>
+        </div>
+
+        <div class="grid grid-4">
+          <div class="card metric reveal">
+            <strong>-15%</strong>
+            <span>Redução potencial de custos ocultos e retrabalho operacional.</span>
+          </div>
+          <div class="card metric reveal">
+            <strong>+15h</strong>
+            <span>Horas semanais liberadas com automações e processos padronizados.</span>
+          </div>
+          <div class="card metric reveal">
+            <strong>100%</strong>
+            <span>Visão integrada entre financeiro, obras, suprimentos e diretoria.</span>
+          </div>
+          <div class="card metric reveal">
+            <strong>1 base</strong>
+            <span>Dados organizados para tomada de decisão confiável.</span>
+          </div>
+        </div>
+
+        <p class="note reveal">Os resultados variam conforme maturidade dos processos, qualidade dos cadastros, integração dos sistemas e nível de adoção da equipe.</p>
+      </div>
+    </section>
+
+    <section id="sobre">
+      <div class="container split">
+        <div class="profile-card reveal">
+          <div class="profile-photo" role="img" aria-label="Especialista em dados, sistemas e processos"></div>
+        </div>
+
+        <div class="about-text reveal">
+          <span class="eyebrow">Sobre a consultoria</span>
+          <div class="section-head">
+            <h2>Experiência prática em dados, sistemas, financeiro e operação.</h2>
+            <p>Atuação voltada à construção civil, operações logísticas, implantação de sistemas, BI, orçamento, viabilidade e automação de processos.</p>
+          </div>
+
+          <p>
+            A <strong>Cruz Farias Consultoria</strong> atua na conexão entre operação, financeiro e tecnologia,
+            ajudando empresas a transformar sistemas como <strong>Sienge, TOTVS, Sankhya e WMS Senior</strong>
+            em uma estrutura real de gestão.
+          </p>
+          <p>
+            O foco é reduzir retrabalho, organizar dados, melhorar processos, estruturar dashboards executivos
+            e aumentar a previsibilidade de obras, custos, receitas, orçamento, fluxo de caixa e viabilidade.
+          </p>
+          <p>
+            A entrega combina visão técnica, entendimento de negócio e linguagem executiva para que diretoria,
+            gestores e operação trabalhem com a mesma base de informação.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-box reveal">
+          <div>
+            <span class="eyebrow">Próximo passo</span>
+            <h2>Quer saber onde sua operação está perdendo dinheiro, tempo e controle?</h2>
+            <p>Solicite um diagnóstico para identificar gargalos em ERP, WMS, Power BI, financeiro, orçamento, obras, viabilidade e automação.</p>
+          </div>
+          <a class="btn btn-primary" href="https://wa.me/5516991940396" target="_blank" rel="noopener">Falar no WhatsApp</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div class="brand">
+        <div class="brand-mark">CF</div>
+        <div class="brand-text">
+          <strong>Cruz Farias Consultoria</strong>
+          <span>Sistemas · Dados · Processos</span>
+        </div>
+      </div>
+      <p>© 2026 Cruz Farias Consultoria · ERP · WMS · BI · Processos</p>
+    </div>
+  </footer>
+
+  <a class="whatsapp-float" href="https://wa.me/5516991940396" target="_blank" rel="noopener" aria-label="Abrir WhatsApp">☏</a>
+
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const navLinks = document.getElementById('navLinks');
+
+    menuBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+      menuBtn.textContent = navLinks.classList.contains('open') ? '×' : '☰';
+    });
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        menuBtn.textContent = '☰';
+      });
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.14 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>
