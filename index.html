@@ -864,6 +864,89 @@
         display: none;
       }
     }
+
+    /* Melhorias finais: identidade, acessibilidade e seção institucional */
+    .brand-mark img,
+    .brand-logo {
+      display: none;
+    }
+
+    .brand-mark {
+      flex: 0 0 48px;
+    }
+
+    button:focus-visible,
+    a:focus-visible {
+      outline: 3px solid rgba(52, 211, 153, 0.88);
+      outline-offset: 4px;
+    }
+
+    .nav-links a.active {
+      color: var(--primary-2);
+    }
+
+    .mvv {
+      background: linear-gradient(180deg, rgba(2, 6, 23, 0.52), rgba(15, 23, 42, 0.34));
+      border-block: 1px solid var(--border);
+    }
+
+    .value-list {
+      display: grid;
+      gap: 0.7rem;
+      margin-top: 1rem;
+      list-style: none;
+    }
+
+    .value-list li {
+      padding: 0.78rem 0.9rem;
+      border-radius: 16px;
+      color: var(--muted);
+      background: rgba(255, 255, 255, 0.045);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .value-list li::before {
+      content: none;
+    }
+
+    .whatsapp-float {
+      font-size: 0.92rem;
+      font-weight: 950;
+      letter-spacing: -0.04em;
+    }
+
+    .profile-photo {
+      display: grid;
+      align-content: end;
+      padding: 1.4rem;
+      background:
+        linear-gradient(160deg, rgba(16,185,129,.2), rgba(59,130,246,.08)),
+        rgba(2,6,23,.78) !important;
+    }
+
+    .profile-photo::after {
+      content: "Cruz & Farias Consultoria em sistemas, dados e processos";
+      max-width: 340px;
+      color: var(--text);
+      font-size: clamp(1.55rem, 3vw, 2.45rem);
+      font-weight: 900;
+      line-height: 1.02;
+      letter-spacing: -0.055em;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
   </style>
 </head>
 <body>
@@ -873,12 +956,7 @@
     
         <a href="#inicio" class="brand" aria-label="Cruz Farias Consultoria">
     
-          <div class="brand-mark">
-            <img 
-              src="images/ChatGPT_Image_Jan_13__2026__08_47_24_PM-removebg-preview.png" 
-              class="brand-logo"
-            >
-          </div>
+          <div class="brand-mark" aria-hidden="true">CF</div>
     
           <div class="brand-text">
             <strong>Cruz & Farias</strong>
@@ -889,13 +967,14 @@
 
         <ul class="nav-links" id="navLinks">
           <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#mvv">Missão</a></li>
           <li><a href="#metodologia">Metodologia</a></li>
           <li><a href="#resultados">Resultados</a></li>
           <li><a href="#sobre">Sobre</a></li>
         </ul>
 
         <a class="btn btn-primary nav-cta" href="https://wa.me/5516991940396" target="_blank" rel="noopener">Solicitar diagnóstico</a>
-        <button class="menu-btn" id="menuBtn" aria-label="Abrir menu">☰</button>
+        <button class="menu-btn" id="menuBtn" type="button" aria-label="Abrir menu" aria-controls="navLinks" aria-expanded="false">☰</button>
       </nav>
     </div>
   </header>
@@ -1071,6 +1150,42 @@
       </div>
     </section>
 
+
+    <section id="mvv" class="mvv">
+      <div class="container">
+        <div class="section-head center reveal">
+          <span class="eyebrow">Essência da consultoria</span>
+          <h2>Missão, visão e valores para uma gestão mais inteligente.</h2>
+          <p>Nosso trabalho existe para transformar sistemas e processos em rotina de gestão confiável, simples de acompanhar e pronta para escalar.</p>
+        </div>
+
+        <div class="grid grid-3">
+          <article class="card reveal">
+            <div class="icon">M</div>
+            <h3>Missão</h3>
+            <p>Transformar processos, sistemas e dados em uma gestão integrada, confiável e orientada por indicadores, reduzindo retrabalho e aumentando o controle operacional das empresas.</p>
+          </article>
+
+          <article class="card reveal">
+            <div class="icon">V</div>
+            <h3>Visão</h3>
+            <p>Ser referência em transformação operacional para construtoras e operações complexas, conectando ERP, BI, WMS, financeiro e governança em uma única base de decisão.</p>
+          </article>
+
+          <article class="card reveal">
+            <div class="icon">+</div>
+            <h3>Valores</h3>
+            <ul class="value-list">
+              <li>Clareza na análise e na comunicação.</li>
+              <li>Execução prática, mensurável e aplicável.</li>
+              <li>Compromisso com dados confiáveis.</li>
+              <li>Governança, ética e responsabilidade.</li>
+              <li>Melhoria contínua com foco em resultado.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
     <section id="metodologia">
       <div class="container">
         <div class="section-head reveal">
@@ -1194,31 +1309,53 @@
   <a class="whatsapp-float" href="https://wa.me/5516991940396" target="_blank" rel="noopener" aria-label="Abrir WhatsApp">☏</a>
 
   <script>
-    const menuBtn = document.getElementById('menuBtn');
-    const navLinks = document.getElementById('navLinks');
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+    const navAnchors = [...document.querySelectorAll(".nav-links a")];
+    const sections = navAnchors
+      .map(anchor => document.querySelector(anchor.getAttribute("href")))
+      .filter(Boolean);
 
-    menuBtn.addEventListener('click', () => {
-      navLinks.classList.toggle('open');
-      menuBtn.textContent = navLinks.classList.contains('open') ? '×' : '☰';
+    function setMenu(open) {
+      navLinks.classList.toggle("open", open);
+      menuBtn.setAttribute("aria-expanded", String(open));
+      menuBtn.setAttribute("aria-label", open ? "Fechar menu" : "Abrir menu");
+      menuBtn.textContent = open ? "×" : "☰";
+    }
+
+    menuBtn.addEventListener("click", () => {
+      setMenu(!navLinks.classList.contains("open"));
     });
 
-    document.querySelectorAll('.nav-links a').forEach(link => {
-      link.addEventListener('click', () => {
-        navLinks.classList.remove('open');
-        menuBtn.textContent = '☰';
-      });
+    navAnchors.forEach(link => {
+      link.addEventListener("click", () => setMenu(false));
     });
 
-    const observer = new IntersectionObserver((entries) => {
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape") setMenu(false);
+    });
+
+    const revealObserver = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
+          entry.target.classList.add("visible");
+          revealObserver.unobserve(entry.target);
         }
       });
     }, { threshold: 0.14 });
 
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    document.querySelectorAll(".reveal").forEach(element => revealObserver.observe(element));
+
+    const activeObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        navAnchors.forEach(anchor => {
+          anchor.classList.toggle("active", anchor.getAttribute("href") === `#${entry.target.id}`);
+        });
+      });
+    }, { rootMargin: "-35% 0px -55% 0px", threshold: 0.01 });
+
+    sections.forEach(section => activeObserver.observe(section));
   </script>
 </body>
 </html>
