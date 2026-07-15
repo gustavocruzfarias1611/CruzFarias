@@ -390,6 +390,696 @@ body.menu-collapsed .side-nav a i svg{
   .logo-box.logo-wide{width:210px;}
 }
 
+
+/* =========================================================
+   AJUSTE EXCLUSIVO DE RESPONSIVIDADE
+   Mantém integralmente cores, identidade visual e conteúdo.
+   ========================================================= */
+
+html,
+body{
+  width:100%;
+  max-width:100%;
+  overflow-x:hidden;
+}
+
+main,
+section,
+.container,
+.content,
+.layout,
+.topbar-inner,
+.grid-2,
+.grid-aside,
+.cards,
+.service-grid,
+.sector-grid,
+.proof-grid,
+.case-wrap,
+.case-cover,
+.case-detail,
+.before-after,
+.case-kpis,
+.timeline,
+.insight-board,
+.assessment,
+.calc-grid,
+.library-grid,
+.article-grid,
+.portal-grid,
+.about-grid,
+.contact-grid,
+.linkedin-rec-header,
+.linkedin-rec-stats,
+.linkedin-rec-grid,
+.linkedin-rec-card,
+.method-head,
+.method-steps,
+.trust-strip,
+.value-map,
+.dash-footer{
+  min-width:0;
+}
+
+img,
+svg,
+canvas,
+video,
+iframe{
+  max-width:100%;
+}
+
+img,
+video,
+iframe{
+  height:auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+a,
+span,
+strong,
+small,
+li,
+label,
+button,
+summary{
+  overflow-wrap:anywhere;
+  word-break:normal;
+}
+
+input,
+select,
+textarea,
+button{
+  max-width:100%;
+}
+
+section[id]{
+  scroll-margin-top:96px;
+}
+
+.mobile-panel{
+  max-height:calc(100vh - 82px);
+  max-height:calc(100dvh - 82px);
+  overflow-y:auto;
+  overscroll-behavior:contain;
+}
+
+.modal,
+.linkedin-rec-modal{
+  overflow-y:auto;
+}
+
+.modal-card,
+.linkedin-rec-modal-card{
+  max-width:100%;
+}
+
+.logo-box,
+.logo-box.logo-wide{
+  max-width:100%;
+}
+
+.radar-card canvas{
+  height:auto;
+}
+
+@media (max-width:1200px){
+  .layout{
+    grid-template-columns:minmax(0,1fr);
+  }
+
+  .content{
+    width:100%;
+  }
+
+  .topbar-inner{
+    min-width:0;
+  }
+
+  .brand{
+    min-width:0;
+  }
+
+  .brand-text{
+    min-width:0;
+  }
+
+  .method-head{
+    grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);
+  }
+
+  .case-cover,
+  .case-detail,
+  .contact-copy,
+  .contact-form,
+  .radar-card,
+  .table-card,
+  .library-panel,
+  .portal-panel,
+  .founder-card{
+    min-width:0;
+  }
+}
+
+@media (max-width:980px){
+  section{
+    padding-block:88px;
+  }
+
+  .hero{
+    min-height:auto;
+  }
+
+  .method-head{
+    grid-template-columns:1fr;
+    gap:24px;
+  }
+
+  .method-head p{
+    align-self:auto;
+  }
+
+  .case-cover h3{
+    font-size:clamp(32px,7vw,42px);
+  }
+
+  .linkedin-rec-header{
+    grid-template-columns:1fr;
+  }
+
+  .linkedin-rec-stats{
+    min-width:0;
+  }
+}
+
+@media (max-width:820px){
+  html{
+    scroll-padding-top:88px;
+  }
+
+  section[id]{
+    scroll-margin-top:88px;
+  }
+
+  .topbar,
+  .topbar-inner{
+    height:74px;
+  }
+
+  .layout{
+    padding-top:74px;
+  }
+
+  .mobile-panel{
+    inset:74px 0 auto 0;
+    max-height:calc(100vh - 74px);
+    max-height:calc(100dvh - 74px);
+  }
+
+  .container,
+  .topbar-inner{
+    width:calc(100% - 28px);
+  }
+
+  section{
+    padding-block:72px;
+  }
+
+  .hero{
+    padding-block:54px 48px;
+  }
+
+  .grid-2,
+  .grid-aside,
+  .assessment,
+  .calc-grid,
+  .library-grid,
+  .about-grid,
+  .contact-grid,
+  .insight-board,
+  .case-wrap,
+  .before-after,
+  .case-kpis,
+  .article-grid,
+  .value-map,
+  .dash-footer,
+  .trust-strip,
+  .cards,
+  .service-grid,
+  .sector-grid{
+    grid-template-columns:minmax(0,1fr);
+  }
+
+  .grid-2,
+  .grid-aside,
+  .assessment,
+  .calc-grid,
+  .library-grid,
+  .about-grid,
+  .contact-grid,
+  .insight-board{
+    gap:30px;
+  }
+
+  .hero-dashboard{
+    min-height:auto;
+    border-radius:30px;
+  }
+
+  .dash-inner{
+    height:auto;
+  }
+
+  .map-node.central{
+    grid-column:auto;
+  }
+
+  .dash-top,
+  .question-head,
+  .modal-top,
+  .linkedin-rec-modal-top,
+  .footer-shell{
+    min-width:0;
+  }
+
+  .dash-top{
+    flex-wrap:wrap;
+  }
+
+  .status,
+  .risk{
+    white-space:normal;
+  }
+
+  .case-cover,
+  .case-detail{
+    padding:26px;
+  }
+
+  .case-cover{
+    min-height:auto;
+  }
+
+  .case-detail{
+    overflow:hidden;
+  }
+
+  .timeline{
+    grid-template-columns:minmax(0,1fr);
+  }
+
+  .linkedin-rec-grid,
+  .linkedin-rec-stats{
+    grid-template-columns:minmax(0,1fr);
+  }
+
+  .linkedin-rec-card{
+    min-height:auto;
+  }
+
+  .linkedin-rec-trust{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .linkedin-rec-modal-person{
+    min-width:0;
+  }
+
+  .linkedin-rec-modal-person > div{
+    min-width:0;
+  }
+
+  .contact-copy,
+  .contact-form,
+  .radar-card,
+  .table-card,
+  .library-panel,
+  .portal-panel,
+  .founder-card,
+  .modal-card,
+  .linkedin-rec-modal-card{
+    padding:24px;
+  }
+
+  .modal,
+  .linkedin-rec-modal{
+    padding:14px;
+  }
+
+  .floating{
+    right:max(14px,env(safe-area-inset-right));
+    bottom:max(14px,env(safe-area-inset-bottom));
+  }
+}
+
+@media (max-width:640px){
+  .container,
+  .topbar-inner{
+    width:calc(100% - 24px);
+  }
+
+  .brand{
+    gap:9px;
+  }
+
+  .brand-mark{
+    flex:0 0 auto;
+  }
+
+  .brand-text strong{
+    font-size:16px;
+    letter-spacing:.035em;
+  }
+
+  .brand-text span{
+    font-size:8px;
+    letter-spacing:.25em;
+  }
+
+  .top-actions{
+    flex:0 0 auto;
+  }
+
+  .menu-btn{
+    min-width:68px;
+    padding-inline:12px;
+  }
+
+  h1{
+    font-size:clamp(38px,13vw,60px);
+    line-height:.96;
+    letter-spacing:-.055em;
+  }
+
+  h2{
+    font-size:clamp(32px,10.5vw,48px);
+    line-height:1;
+    letter-spacing:-.045em;
+  }
+
+  .lead{
+    font-size:clamp(16px,4.7vw,20px);
+  }
+
+  .hero-actions,
+  .case-actions,
+  .linkedin-rec-actions{
+    display:grid;
+    grid-template-columns:minmax(0,1fr);
+    width:100%;
+  }
+
+  .hero-actions .btn,
+  .case-actions .btn,
+  .linkedin-rec-actions .btn{
+    width:100%;
+  }
+
+  .tags,
+  .case-meta,
+  .tech-row,
+  .cases-toolbar{
+    gap:7px;
+  }
+
+  .method-word{
+    font-size:clamp(48px,18vw,74px);
+  }
+
+  .method-steps,
+  .proof-grid,
+  .portal-grid{
+    grid-template-columns:minmax(0,1fr);
+  }
+
+  .method-step{
+    min-height:auto;
+    border-right:0;
+  }
+
+  .signal{
+    grid-template-columns:43px minmax(0,1fr);
+    gap:13px;
+    padding:16px;
+  }
+
+  .risk{
+    grid-column:2;
+    justify-self:start;
+  }
+
+  .card,
+  .service,
+  .sector,
+  .proof{
+    padding:22px;
+  }
+
+  .sector{
+    min-height:auto;
+  }
+
+  .case-cover h3{
+    font-size:clamp(30px,10vw,38px);
+  }
+
+  .case-kpi strong{
+    font-size:27px;
+  }
+
+  .calc-total strong{
+    font-size:clamp(34px,12vw,44px);
+  }
+
+  .score-ring{
+    width:min(190px,72vw);
+    height:min(190px,72vw);
+  }
+
+  .avatar{
+    min-height:300px;
+  }
+
+  .avatar strong{
+    font-size:clamp(64px,25vw,92px);
+  }
+
+  .capability{
+    grid-template-columns:minmax(0,1fr);
+    gap:6px;
+  }
+
+  .footer-shell{
+    flex-direction:column;
+    text-align:center;
+  }
+
+  .footer-links{
+    justify-content:center;
+  }
+}
+
+@media (max-width:460px){
+  .topbar,
+  .topbar-inner{
+    height:68px;
+  }
+
+  .layout{
+    padding-top:68px;
+  }
+
+  .mobile-panel{
+    inset:68px 0 auto 0;
+    max-height:calc(100vh - 68px);
+    max-height:calc(100dvh - 68px);
+    padding:12px;
+  }
+
+  .brand-mark{
+    width:40px;
+    height:40px;
+    border-radius:13px;
+  }
+
+  .brand-mark svg{
+    width:29px;
+  }
+
+  .brand-text strong{
+    font-size:14px;
+  }
+
+  .brand-text span{
+    display:none;
+  }
+
+  .btn.small,
+  .menu-btn{
+    min-height:40px;
+    font-size:10px;
+  }
+
+  section{
+    padding-block:62px;
+  }
+
+  .hero{
+    padding-block:46px 42px;
+  }
+
+  h1{
+    font-size:clamp(34px,13.2vw,48px);
+  }
+
+  h2{
+    font-size:clamp(29px,10.8vw,40px);
+  }
+
+  .eyebrow{
+    letter-spacing:.11em;
+  }
+
+  .hero-dashboard,
+  .method-shell,
+  .case-premium,
+  .founder-card,
+  .contact-copy,
+  .contact-form,
+  .radar-card,
+  .table-card,
+  .library-panel,
+  .portal-panel,
+  .modal-card,
+  .linkedin-rec-modal-card{
+    border-radius:22px;
+  }
+
+  .hero-dashboard,
+  .case-cover,
+  .case-detail,
+  .contact-copy,
+  .contact-form,
+  .radar-card,
+  .table-card,
+  .library-panel,
+  .portal-panel,
+  .founder-card,
+  .modal-card,
+  .linkedin-rec-modal-card{
+    padding:20px;
+  }
+
+  .card,
+  .service,
+  .sector,
+  .proof,
+  .linkedin-rec-card{
+    padding:19px;
+    border-radius:20px;
+  }
+
+  .dash-footer div{
+    padding-block:12px;
+  }
+
+  .linkedin-rec-top{
+    align-items:flex-start;
+    gap:12px;
+    padding-right:38px;
+  }
+
+  .linkedin-rec-avatar{
+    width:54px;
+    height:54px;
+  }
+
+  .linkedin-rec-top h3{
+    font-size:18px;
+  }
+
+  .linkedin-rec-modal-person{
+    align-items:flex-start;
+    gap:12px;
+  }
+
+  .linkedin-rec-modal-person img{
+    width:58px;
+    height:58px;
+  }
+
+  .linkedin-rec-modal-person h3{
+    font-size:21px;
+  }
+
+  .linkedin-rec-modal-quote{
+    padding:18px;
+    font-size:14px;
+  }
+
+  .floating{
+    gap:7px;
+  }
+
+  .float-btn{
+    width:46px;
+    height:46px;
+    border-radius:14px;
+  }
+}
+
+@media (max-width:360px){
+  .container,
+  .topbar-inner{
+    width:calc(100% - 18px);
+  }
+
+  .brand-text strong{
+    font-size:12px;
+  }
+
+  .menu-btn{
+    min-width:60px;
+    padding-inline:9px;
+  }
+
+  .hero-dashboard,
+  .case-cover,
+  .case-detail,
+  .contact-copy,
+  .contact-form,
+  .radar-card,
+  .table-card,
+  .library-panel,
+  .portal-panel,
+  .founder-card,
+  .modal-card,
+  .linkedin-rec-modal-card{
+    padding:17px;
+  }
+
+  .tag,
+  .case-meta span,
+  .tech-row span{
+    width:100%;
+    justify-content:flex-start;
+  }
+}
+
+@media (min-width:1201px) and (max-height:820px){
+  .sidebar{
+    overflow-y:auto !important;
+    overflow-x:hidden !important;
+  }
+}
+
 </style>
 </head>
 <body class="menu-collapsed">
