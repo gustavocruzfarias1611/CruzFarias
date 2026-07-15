@@ -1080,6 +1080,49 @@ section[id]{
   }
 }
 
+
+
+/* ===== AJUSTE PONTUAL MOBILE: MÉTODO CONECTA =====
+   Mantém cores, conteúdo e estrutura originais. */
+@media (max-width:640px){
+  #metodo .method-head{
+    grid-template-columns:minmax(0,1fr);
+    gap:20px;
+    padding:24px;
+    overflow:hidden;
+  }
+
+  #metodo .method-head > *{
+    min-width:0;
+    width:100%;
+    max-width:100%;
+  }
+
+  #metodo .method-word{
+    font-size:clamp(42px,14.5vw,60px);
+    line-height:.94;
+    letter-spacing:-.065em;
+    white-space:nowrap;
+    overflow:visible;
+  }
+
+  #metodo .method-head p{
+    font-size:15px;
+    line-height:1.6;
+    overflow-wrap:break-word;
+  }
+}
+
+@media (max-width:380px){
+  #metodo .method-head{
+    padding:20px;
+  }
+
+  #metodo .method-word{
+    font-size:clamp(38px,14vw,52px);
+  }
+}
+
 </style>
 </head>
 <body class="menu-collapsed">
