@@ -1088,7 +1088,7 @@ section[id]{
   #metodo .method-head{
     grid-template-columns:minmax(0,1fr);
     gap:20px;
-    padding:24px;
+    padding:22px 20px;
     overflow:hidden;
   }
 
@@ -1099,27 +1099,29 @@ section[id]{
   }
 
   #metodo .method-word{
-    font-size:clamp(42px,14.5vw,60px);
-    line-height:.94;
-    letter-spacing:-.065em;
+    display:block;
+    max-width:100%;
+    font-size:clamp(34px,11.8vw,48px);
+    line-height:.96;
+    letter-spacing:-.07em;
     white-space:nowrap;
-    overflow:visible;
+    overflow:hidden;
   }
 
   #metodo .method-head p{
     font-size:15px;
     line-height:1.6;
-    overflow-wrap:break-word;
+    overflow-wrap:anywhere;
   }
 }
 
 @media (max-width:380px){
   #metodo .method-head{
-    padding:20px;
+    padding:20px 18px;
   }
 
   #metodo .method-word{
-    font-size:clamp(38px,14vw,52px);
+    font-size:clamp(32px,11.4vw,42px);
   }
 }
 
