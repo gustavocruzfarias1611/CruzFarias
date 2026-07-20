@@ -44,3 +44,15 @@ A página de parceiros ficará em:
 - Portfólio: `https://gustavoanalytics.github.io/MEUPORTIFOLIO`
 - E-mail: `gustavocruzfarias16@gmail.com`
 - WhatsApp: `+55 16 99194-0396`
+
+
+## Nova seção — Empresas e operações
+
+Foi adicionada a seção `#empresas`, posicionada após Experiências e antes da Rede Conecta.
+
+A seção apresenta:
+- Grupo MNGT e suas operações Área Incrível, Mais Armazém e Centro Logístico;
+- Vilaurbe Construtora e Incorporadora;
+- Saffi Consultoria;
+- contextos de aplicação e capacidades desenvolvidas;
+- aviso de transparência para não sugerir contratação formal da consultoria quando a experiência ocorreu em vínculo profissional ou projeto.
