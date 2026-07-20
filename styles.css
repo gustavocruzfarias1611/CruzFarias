@@ -422,11 +422,17 @@ h3 { letter-spacing: -.032em; line-height: 1.18; }
 .content-card p { margin-bottom: 17px; color: var(--muted); font-size: 12px; }
 .content-card a { color: var(--gold-light); font-size: 11px; font-weight: 900; text-decoration: none; }
 
-.about-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: 42px; align-items: center; }
-.about-card { min-height: 430px; padding: 28px; display: flex; flex-direction: column; justify-content: flex-end; border: 1px solid var(--line); border-radius: 30px; background: radial-gradient(circle at 85% 6%, rgba(213,170,85,.18), transparent 34%), linear-gradient(150deg, #122039, #07111f); box-shadow: var(--shadow); }
-.about-monogram { color: var(--gold-light); font-family: Manrope, Inter, sans-serif; font-size: clamp(74px, 11vw, 126px); line-height: .8; letter-spacing: -.09em; }
-.about-card strong { display: block; margin-top: 24px; font-size: 22px; }
-.about-card span { display: block; margin-top: 4px; color: var(--muted); font-size: 12px; }
+.about-grid { display: grid; grid-template-columns: minmax(280px, 360px) minmax(0, 1fr); gap: 56px; align-items: center; }
+.about-card { position: relative; width: 100%; max-width: 360px; aspect-ratio: 4 / 5; min-height: 0; justify-self: start; overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end; border: 1px solid var(--line); border-radius: 28px; background: radial-gradient(circle at 85% 6%, rgba(213,170,85,.18), transparent 34%), linear-gradient(150deg, #122039, #07111f); box-shadow: var(--shadow); isolation: isolate; }
+.about-photo { position: absolute; inset: 0; z-index: 0; background: linear-gradient(150deg, #122039, #07111f); }
+.about-photo img { width: 100%; height: 100%; display: block; object-fit: cover; object-position: center 18%; filter: saturate(.96) contrast(1.03); }
+.about-photo-fallback { width: 100%; height: 100%; display: grid; place-items: center; color: var(--gold-light); font-family: Manrope, Inter, sans-serif; font-size: clamp(74px, 11vw, 126px); line-height: .8; letter-spacing: -.09em; background: radial-gradient(circle at 85% 6%, rgba(213,170,85,.18), transparent 34%), linear-gradient(150deg, #122039, #07111f); }
+.about-photo-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(3,8,18,.02) 28%, rgba(3,8,18,.32) 58%, rgba(3,8,18,.96) 100%); pointer-events: none; }
+.about-card-caption { position: relative; z-index: 2; padding: 26px 24px 23px; }
+.about-card-caption::before { content: ""; display: block; width: 58px; height: 3px; margin-bottom: 15px; border-radius: 999px; background: linear-gradient(90deg, var(--gold-light), var(--gold)); box-shadow: 0 0 22px rgba(213,170,85,.32); }
+.about-card .about-role { color: var(--gold-light); font-size: 9px; font-weight: 900; letter-spacing: .15em; text-transform: uppercase; }
+.about-card strong { display: block; margin-top: 7px; font-size: 22px; }
+.about-card span { display: block; margin-top: 5px; color: #d2dbe8; font-size: 11px; line-height: 1.5; }
 .about-points { display: grid; gap: 0; }
 .about-point { display: grid; grid-template-columns: 165px 1fr; gap: 20px; padding: 18px 0; border-bottom: 1px solid var(--line); }
 .about-point:last-child { border-bottom: 0; }
@@ -479,6 +485,8 @@ h3 { letter-spacing: -.032em; line-height: 1.18; }
   .nav { display: none; }
   .menu-btn { display: inline-flex; }
   .hero-grid, .signal-layout, .promise-band, .partner-teaser, .about-grid, .partner-hero-grid { grid-template-columns: 1fr; }
+  .about-grid { gap: 34px; }
+  .about-card { justify-self: center; }
   .sticky-head { position: static; }
   .grid-4 { grid-template-columns: repeat(2, 1fr); }
   .method-head { grid-template-columns: 1fr; }
@@ -512,6 +520,7 @@ h3 { letter-spacing: -.032em; line-height: 1.18; }
   .about-point { grid-template-columns: 1fr; gap: 6px; }
   .hero-actions, .about-actions { display: grid; grid-template-columns: 1fr; width: 100%; }
   .hero-actions .btn, .about-actions .btn { width: 100%; }
+  .about-card { max-width: 310px; }
   .footer-inner { flex-direction: column; text-align: center; }
   .footer-links { justify-content: center; }
   .generator { grid-template-columns: 1fr; }
@@ -534,4 +543,10 @@ h3 { letter-spacing: -.032em; line-height: 1.18; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
   .reveal { opacity: 1; transform: none; }
+}
+
+@media (max-width: 640px) {
+  .about-card { max-width: 340px; aspect-ratio: 4 / 5; min-height: 0; justify-self: center; }
+  .about-card-caption { padding: 24px 21px 21px; }
+  .about-photo img { object-position: center 18%; }
 }
