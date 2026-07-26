@@ -16,6 +16,595 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../styles.css">
+
+  <!-- Responsividade e estabilidade da página Rede Conecta -->
+  <style id="rede-conecta-responsive">
+    :root {
+      --responsive-container: 1240px;
+      --responsive-gutter: clamp(16px, 3vw, 32px);
+      --responsive-header: 82px;
+    }
+
+    html {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+      overflow-x: clip;
+      scroll-behavior: smooth;
+      scroll-padding-top: calc(var(--responsive-header) + 18px);
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
+
+    body {
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+      margin: 0;
+      overflow-x: hidden;
+      overflow-x: clip;
+    }
+
+    body.menu-open {
+      overflow: hidden;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    img,
+    picture,
+    svg,
+    video,
+    canvas,
+    iframe {
+      display: block;
+      max-width: 100%;
+    }
+
+    img,
+    video {
+      height: auto;
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+      max-width: 100%;
+      font: inherit;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    p,
+    li,
+    a,
+    span,
+    strong,
+    small,
+    label,
+    button {
+      max-width: 100%;
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+    }
+
+    main,
+    section,
+    header,
+    footer,
+    nav,
+    .container,
+    .header-inner,
+    .partner-hero-grid,
+    .partner-panel,
+    .partner-types,
+    .signal-layout,
+    .signal-list,
+    .steps,
+    .promise-band,
+    .generator,
+    .generated-link,
+    .final-box,
+    .footer-inner {
+      min-width: 0;
+      max-width: 100%;
+    }
+
+    .container {
+      width: min(calc(100% - (var(--responsive-gutter) * 2)), var(--responsive-container));
+      margin-inline: auto;
+    }
+
+    section {
+      overflow-x: clip;
+    }
+
+    .header-inner {
+      width: min(calc(100% - (var(--responsive-gutter) * 2)), 1380px);
+      margin-inline: auto;
+      gap: clamp(12px, 2vw, 28px);
+    }
+
+    .brand {
+      flex: 0 1 auto;
+      min-width: 0;
+    }
+
+    .brand-copy {
+      min-width: 0;
+    }
+
+    .brand-copy strong,
+    .brand-copy span {
+      white-space: normal;
+    }
+
+    .nav {
+      min-width: 0;
+      flex: 1 1 auto;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: clamp(10px, 1.5vw, 22px);
+    }
+
+    .nav a {
+      white-space: nowrap;
+    }
+
+    .header-actions {
+      flex: 0 0 auto;
+      min-width: 0;
+    }
+
+    .menu-btn {
+      display: none;
+    }
+
+    .mobile-menu {
+      display: none;
+    }
+
+    .mobile-menu.is-open,
+    .mobile-menu.open {
+      display: grid;
+    }
+
+    .btn {
+      max-width: 100%;
+      white-space: normal;
+      text-align: center;
+      line-height: 1.25;
+    }
+
+    .partner-hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
+      gap: clamp(30px, 5vw, 76px);
+      align-items: center;
+    }
+
+    .partner-hero-grid > *,
+    .signal-layout > *,
+    .promise-band > * {
+      min-width: 0;
+      max-width: 100%;
+    }
+
+    .partner-panel,
+    .partner-type,
+    .signal,
+    .step,
+    .promise-band,
+    .final-box {
+      width: 100%;
+      max-width: 100%;
+      overflow: hidden;
+    }
+
+    .hero-actions,
+    .partner-list,
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      min-width: 0;
+    }
+
+    .partner-list span,
+    .risk,
+    .promise-point {
+      white-space: normal;
+    }
+
+    .partner-types {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: clamp(14px, 2vw, 24px);
+    }
+
+    .signal-layout {
+      display: grid;
+      grid-template-columns: minmax(280px, 0.82fr) minmax(0, 1.18fr);
+      gap: clamp(32px, 6vw, 86px);
+      align-items: start;
+    }
+
+    .signal {
+      min-width: 0;
+    }
+
+    .signal > div,
+    .signal p,
+    .signal strong {
+      min-width: 0;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: clamp(14px, 2vw, 24px);
+    }
+
+    .promise-band {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(300px, 0.88fr);
+      gap: clamp(28px, 5vw, 72px);
+      align-items: center;
+    }
+
+    .generator {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 10px;
+      width: 100%;
+    }
+
+    .generator input {
+      width: 100%;
+      min-width: 0;
+    }
+
+    .generated-link {
+      width: 100%;
+      min-height: 0;
+      margin-top: 12px;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+
+    .generated-link a {
+      display: block;
+      width: 100%;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+
+    #sharePartnerLink[aria-disabled="true"] {
+      pointer-events: none;
+      opacity: 0.5;
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 18px 28px;
+    }
+
+    .float-actions {
+      right: max(14px, env(safe-area-inset-right));
+      bottom: max(14px, env(safe-area-inset-bottom));
+    }
+
+    #backTop {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transform: translateY(8px);
+      transition: opacity .2s ease, visibility .2s ease, transform .2s ease;
+    }
+
+    #backTop.is-visible {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .progress {
+      transform-origin: left center;
+    }
+
+    .reveal {
+      transition: opacity .55s ease, transform .55s ease;
+    }
+
+    .reveal:not(.visible):not(.is-visible) {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+
+    .reveal.visible,
+    .reveal.is-visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    @media (max-width: 1180px) {
+      .nav {
+        display: none !important;
+      }
+
+      .menu-btn {
+        display: inline-flex !important;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .header-inner {
+        justify-content: space-between;
+      }
+
+      .mobile-menu {
+        position: fixed;
+        z-index: 999;
+        top: var(--responsive-header);
+        left: 0;
+        right: 0;
+        max-height: calc(100dvh - var(--responsive-header));
+        overflow-y: auto;
+        padding: 16px var(--responsive-gutter) 22px;
+        border-top: 1px solid rgba(255,255,255,.08);
+        background: rgba(7,17,31,.985);
+        box-shadow: 0 24px 50px rgba(0,0,0,.32);
+      }
+
+      .mobile-menu a {
+        display: flex;
+        align-items: center;
+        min-height: 48px;
+        padding: 10px 4px;
+        border-bottom: 1px solid rgba(255,255,255,.07);
+      }
+
+      .partner-types {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .steps {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 980px) {
+      :root {
+        --responsive-header: 76px;
+      }
+
+      .partner-hero-grid,
+      .signal-layout,
+      .promise-band {
+        grid-template-columns: 1fr;
+      }
+
+      .sticky-head {
+        position: static !important;
+        top: auto !important;
+      }
+
+      .partner-panel {
+        width: 100%;
+      }
+
+      .promise-band {
+        align-items: start;
+      }
+    }
+
+    @media (max-width: 760px) {
+      :root {
+        --responsive-gutter: 14px;
+        --responsive-header: 70px;
+      }
+
+      .header-inner {
+        min-height: var(--responsive-header);
+      }
+
+      .brand-mark {
+        width: 43px;
+        height: 43px;
+        flex: 0 0 43px;
+      }
+
+      .brand-copy strong {
+        font-size: clamp(.8rem, 3.8vw, 1rem);
+      }
+
+      .brand-copy span {
+        font-size: .62rem;
+      }
+
+      .diagnostic-header {
+        display: none !important;
+      }
+
+      h1 {
+        font-size: clamp(2rem, 10.5vw, 3.45rem) !important;
+        line-height: 1.05 !important;
+        letter-spacing: -.04em !important;
+      }
+
+      h2 {
+        font-size: clamp(1.6rem, 7.7vw, 2.55rem) !important;
+        line-height: 1.12 !important;
+        letter-spacing: -.03em !important;
+      }
+
+      h3 {
+        line-height: 1.22;
+      }
+
+      .lead {
+        font-size: clamp(.98rem, 4.25vw, 1.12rem) !important;
+        line-height: 1.65 !important;
+      }
+
+      .hero-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+        width: 100%;
+      }
+
+      .hero-actions .btn {
+        width: 100%;
+      }
+
+      .partner-types,
+      .steps {
+        grid-template-columns: 1fr;
+      }
+
+      .signal {
+        display: grid !important;
+        grid-template-columns: auto minmax(0, 1fr) !important;
+        align-items: start !important;
+        gap: 12px !important;
+      }
+
+      .signal .risk {
+        grid-column: 2;
+        justify-self: start;
+      }
+
+      .generator {
+        grid-template-columns: 1fr;
+      }
+
+      .generator .btn {
+        width: 100%;
+      }
+
+      #link-indicacao .partner-panel .hero-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      #copyPartnerLink,
+      #sharePartnerLink {
+        width: 100%;
+      }
+
+      .footer-inner {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .footer-links {
+        gap: 10px 16px;
+      }
+
+      .float-btn {
+        width: 46px;
+        height: 46px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      :root {
+        --responsive-gutter: 10px;
+      }
+
+      .brand-copy span {
+        display: none;
+      }
+
+      .menu-btn {
+        padding-inline: 11px !important;
+      }
+
+      .partner-panel,
+      .partner-type,
+      .step,
+      .promise-band,
+      .final-box {
+        border-radius: 18px !important;
+      }
+
+      .partner-list {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .partner-list span {
+        width: 100%;
+      }
+
+      .signal {
+        padding: 16px !important;
+      }
+
+      .signal-num {
+        font-size: .78rem;
+      }
+
+      .footer-links {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 340px) {
+      :root {
+        --responsive-gutter: 8px;
+      }
+
+      .brand-copy strong {
+        font-size: .72rem;
+      }
+
+      .menu-btn {
+        min-width: 54px;
+      }
+
+      .partner-panel,
+      .partner-type,
+      .step,
+      .promise-band,
+      .final-box {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+        scroll-behavior: auto !important;
+      }
+
+      .reveal,
+      .reveal:not(.visible):not(.is-visible) {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+
 </head>
 <body>
   <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
@@ -206,6 +795,256 @@
     <a class="float-btn whatsapp" href="https://wa.me/5516991940396?text=Ol%C3%A1%20Gustavo%2C%20gostaria%20de%20conhecer%20a%20Rede%20Conecta." target="_blank" rel="noopener" aria-label="Conversar pelo WhatsApp">WA</a>
   </div>
 
-  <script src="../script.js"></script>
+  <!-- Funcionalidades autônomas da página Rede Conecta -->
+  <script id="rede-conecta-functions">
+  (() => {
+    "use strict";
+
+    const $ = (selector, context = document) => context.querySelector(selector);
+    const $$ = (selector, context = document) => Array.from(context.querySelectorAll(selector));
+
+    const menuButton = $("#menuBtn");
+    const mobileMenu = $("#mobileMenu");
+    const backTop = $("#backTop");
+    const progress = $("#progress");
+    const year = $("#year");
+
+    const partnerCode = $("#partnerCode");
+    const generateButton = $("#generatePartnerLink");
+    const generatedLink = $("#generatedLink");
+    const copyButton = $("#copyPartnerLink");
+    const shareButton = $("#sharePartnerLink");
+
+    let currentPartnerLink = "";
+
+    if (year) {
+      year.textContent = String(new Date().getFullYear());
+    }
+
+    function setMenu(open) {
+      if (!menuButton || !mobileMenu) return;
+      mobileMenu.classList.toggle("is-open", open);
+      mobileMenu.classList.toggle("open", open);
+      menuButton.setAttribute("aria-expanded", String(open));
+      document.body.classList.toggle("menu-open", open);
+    }
+
+    if (menuButton && mobileMenu) {
+      menuButton.addEventListener("click", () => {
+        setMenu(menuButton.getAttribute("aria-expanded") !== "true");
+      });
+
+      $$("#mobileMenu a").forEach(link => {
+        link.addEventListener("click", () => setMenu(false));
+      });
+
+      document.addEventListener("keydown", event => {
+        if (event.key === "Escape") {
+          setMenu(false);
+          menuButton.focus();
+        }
+      });
+
+      document.addEventListener("click", event => {
+        if (
+          menuButton.getAttribute("aria-expanded") === "true" &&
+          !mobileMenu.contains(event.target) &&
+          !menuButton.contains(event.target)
+        ) {
+          setMenu(false);
+        }
+      });
+
+      window.addEventListener("resize", () => {
+        if (window.innerWidth > 1180) setMenu(false);
+      }, { passive: true });
+    }
+
+    let scrollFrame = 0;
+
+    function updateScrollState() {
+      scrollFrame = 0;
+      const documentElement = document.documentElement;
+      const scrollable = Math.max(documentElement.scrollHeight - window.innerHeight, 1);
+      const percentage = Math.min(100, Math.max(0, (window.scrollY / scrollable) * 100));
+
+      if (progress) {
+        progress.style.width = `${percentage}%`;
+      }
+
+      if (backTop) {
+        backTop.classList.toggle("is-visible", window.scrollY > 420);
+      }
+    }
+
+    function requestScrollUpdate() {
+      if (scrollFrame) return;
+      scrollFrame = window.requestAnimationFrame(updateScrollState);
+    }
+
+    window.addEventListener("scroll", requestScrollUpdate, { passive: true });
+    window.addEventListener("resize", requestScrollUpdate, { passive: true });
+    updateScrollState();
+
+    if (backTop) {
+      backTop.addEventListener("click", event => {
+        event.preventDefault();
+        window.scrollTo({
+          top: 0,
+          behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"
+        });
+      });
+    }
+
+    const revealElements = $$(".reveal");
+
+    if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      const revealObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible", "is-visible");
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, {
+        rootMargin: "0px 0px -8% 0px",
+        threshold: 0.08
+      });
+
+      revealElements.forEach(element => revealObserver.observe(element));
+    } else {
+      revealElements.forEach(element => element.classList.add("visible", "is-visible"));
+    }
+
+    function normalizePartnerCode(value) {
+      return value
+        .trim()
+        .toUpperCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .replace(/[^A-Z0-9_-]+/g, "-")
+        .replace(/-{2,}/g, "-")
+        .replace(/^[-_]+|[-_]+$/g, "")
+        .slice(0, 40);
+    }
+
+    function setGeneratorMessage(message, type = "info") {
+      if (!generatedLink) return;
+      generatedLink.dataset.state = type;
+      generatedLink.textContent = message;
+    }
+
+    function generatePartnerLink() {
+      if (!partnerCode || !generatedLink || !copyButton || !shareButton) return;
+
+      const code = normalizePartnerCode(partnerCode.value);
+      partnerCode.value = code;
+
+      if (!code) {
+        currentPartnerLink = "";
+        setGeneratorMessage("Informe um código do parceiro para gerar o link.", "error");
+        copyButton.disabled = true;
+        shareButton.href = "#";
+        shareButton.setAttribute("aria-disabled", "true");
+        partnerCode.focus();
+        return;
+      }
+
+      const url = new URL("https://diagnostico-pi-one.vercel.app/");
+      url.searchParams.set("utm_source", "rede_conecta");
+      url.searchParams.set("utm_medium", "indicacao");
+      url.searchParams.set("utm_campaign", "diagnostico_conecta");
+      url.searchParams.set("parceiro", code);
+
+      currentPartnerLink = url.toString();
+
+      generatedLink.dataset.state = "success";
+      generatedLink.replaceChildren();
+
+      const anchor = document.createElement("a");
+      anchor.href = currentPartnerLink;
+      anchor.target = "_blank";
+      anchor.rel = "noopener";
+      anchor.textContent = currentPartnerLink;
+      anchor.setAttribute("aria-label", "Abrir link de indicação gerado");
+      generatedLink.appendChild(anchor);
+
+      copyButton.disabled = false;
+      shareButton.href = `https://wa.me/?text=${encodeURIComponent(
+        `Olá! Preparei este diagnóstico para ajudar a identificar oportunidades de melhoria em processos, sistemas e dados: ${currentPartnerLink}`
+      )}`;
+      shareButton.setAttribute("aria-disabled", "false");
+    }
+
+    async function copyPartnerLink() {
+      if (!currentPartnerLink || !copyButton) return;
+
+      const originalText = copyButton.textContent;
+
+      try {
+        if (navigator.clipboard && window.isSecureContext) {
+          await navigator.clipboard.writeText(currentPartnerLink);
+        } else {
+          const textarea = document.createElement("textarea");
+          textarea.value = currentPartnerLink;
+          textarea.setAttribute("readonly", "");
+          textarea.style.position = "fixed";
+          textarea.style.opacity = "0";
+          document.body.appendChild(textarea);
+          textarea.select();
+          const successful = document.execCommand("copy");
+          textarea.remove();
+          if (!successful) throw new Error("Falha ao copiar.");
+        }
+
+        copyButton.textContent = "Link copiado";
+      } catch (error) {
+        copyButton.textContent = "Copie o link acima";
+      }
+
+      window.setTimeout(() => {
+        copyButton.textContent = originalText;
+      }, 2200);
+    }
+
+    if (generateButton) {
+      generateButton.addEventListener("click", generatePartnerLink);
+    }
+
+    if (partnerCode) {
+      partnerCode.addEventListener("keydown", event => {
+        if (event.key === "Enter") {
+          event.preventDefault();
+          generatePartnerLink();
+        }
+      });
+
+      partnerCode.addEventListener("input", () => {
+        if (!currentPartnerLink) return;
+        currentPartnerLink = "";
+        if (copyButton) copyButton.disabled = true;
+        if (shareButton) {
+          shareButton.href = "#";
+          shareButton.setAttribute("aria-disabled", "true");
+        }
+        if (generatedLink) generatedLink.textContent = "";
+      });
+    }
+
+    if (copyButton) {
+      copyButton.addEventListener("click", copyPartnerLink);
+    }
+
+    if (shareButton) {
+      shareButton.addEventListener("click", event => {
+        if (shareButton.getAttribute("aria-disabled") === "true") {
+          event.preventDefault();
+          if (partnerCode) partnerCode.focus();
+        }
+      });
+    }
+  })();
+  </script>
+
 </body>
 </html>
