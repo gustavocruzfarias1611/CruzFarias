@@ -1,0 +1,23 @@
+{
+  "name": "Cruz & Farias Consultoria",
+  "short_name": "Cruz & Farias",
+  "description": "Operação Conectada: processos, ERP, WMS, dados, pessoas e governança.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#07111f",
+  "theme_color": "#07111f",
+  "icons": [
+    {
+      "src": "assets/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

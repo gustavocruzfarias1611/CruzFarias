@@ -43,3 +43,8 @@ Altere apenas esses valores quando o endereço do diagnóstico ou o telefone mud
 ## Transparência
 
 As marcas da seção de experiências representam ambientes profissionais em que Gustavo Farias participou ou liderou iniciativas. A página não afirma que todas foram clientes diretas da Cruz & Farias.
+
+## Logo na aba do navegador (favicon)
+
+O pacote já inclui `favicon.ico`, PNGs em múltiplos tamanhos, `apple-touch-icon.png` e `site.webmanifest`.
+Após publicar, o navegador pode manter o ícone antigo em cache. Faça uma atualização forçada (`Ctrl + F5`) ou teste em janela anônima. Em alguns celulares, o ícone ao lado da URL é o botão de informações/controles do Chrome; a logo aparece na aba, nos favoritos e no atalho da tela inicial.
