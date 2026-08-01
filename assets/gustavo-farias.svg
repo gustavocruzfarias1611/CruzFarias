@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 900">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#17324e"/>
+      <stop offset="1" stop-color="#050c15"/>
+    </linearGradient>
+    <radialGradient id="glow" cx=".25" cy=".15" r=".8">
+      <stop offset="0" stop-color="#d5aa55" stop-opacity=".22"/>
+      <stop offset="1" stop-color="#d5aa55" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="760" height="900" fill="url(#bg)"/>
+  <rect width="760" height="900" fill="url(#glow)"/>
+  <g opacity=".14" stroke="#fff">
+    <path d="M0 150h760M0 300h760M0 450h760M0 600h760M0 750h760"/>
+    <path d="M125 0v900M250 0v900M375 0v900M500 0v900M625 0v900"/>
+  </g>
+  <circle cx="380" cy="355" r="160" fill="#0d2035" stroke="#d5aa55" stroke-opacity=".45" stroke-width="2"/>
+  <circle cx="380" cy="330" r="96" fill="#d5aa55" fill-opacity=".10"/>
+  <path d="M205 760c20-160 95-245 175-245s155 85 175 245" fill="#0a1828" stroke="#45d1bb" stroke-opacity=".38" stroke-width="2"/>
+  <text x="380" y="380" text-anchor="middle" fill="#f1d497" font-family="Arial, sans-serif" font-size="112" font-weight="800">GF</text>
+  <text x="380" y="830" text-anchor="middle" fill="#8fa0b1" font-family="Arial, sans-serif" font-size="22" letter-spacing="8">OPERAÇÃO CONECTADA</text>
+</svg>
