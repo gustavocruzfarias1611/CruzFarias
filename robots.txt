@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
-
-Sitemap: https://cruz-farias.vercel.app/sitemap.xml
+Sitemap: https://www.cruzfarias.com.br/sitemap.xml
