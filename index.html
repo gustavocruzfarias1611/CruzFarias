@@ -1279,7 +1279,485 @@ p, li { text-wrap: pretty; }
   .button { padding-inline: 14px; }
   .proof-grid article strong { font-size: 1.55rem; }
 }
-</style></head>
+</style>
+<style id="mobile-fit-v5">
+/* =========================================================
+   V5 — CORREÇÃO DE TEXTOS EM TELAS PEQUENAS
+   Evita cortes, estouros horizontais e fontes exageradas.
+   ========================================================= */
+
+@media (max-width: 720px) {
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+  }
+
+  *,
+  *::before,
+  *::after {
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  p,
+  li,
+  a,
+  button,
+  span,
+  strong,
+  small,
+  em,
+  dt,
+  dd {
+    max-width: 100%;
+    overflow: visible;
+    text-overflow: clip;
+    overflow-wrap: anywhere;
+    word-break: normal;
+    hyphens: auto;
+    white-space: normal;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-wrap: pretty;
+  }
+
+  .container,
+  .header-shell {
+    width: min(calc(100% - 28px), 680px);
+    max-width: 100%;
+    margin-inline: auto;
+  }
+
+  .brand-image {
+    min-width: 0;
+    max-width: calc(100% - 66px);
+  }
+
+  .brand-image img {
+    width: min(188px, 54vw);
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .partner-badge {
+    width: 100%;
+    min-height: 0;
+    padding: 10px 12px;
+    border-radius: 15px;
+    line-height: 1.35;
+    letter-spacing: .025em;
+    text-align: left;
+    text-transform: none;
+  }
+
+  .hero h1 {
+    max-width: 100%;
+    margin-bottom: 20px;
+    font-size: clamp(2.18rem, 10.8vw, 3.35rem);
+    line-height: 1.04;
+    letter-spacing: -.038em;
+  }
+
+  .hero-lead {
+    max-width: 100%;
+    margin-bottom: 26px;
+    font-size: clamp(.93rem, 3.9vw, 1.02rem);
+    line-height: 1.58;
+  }
+
+  .hero-actions,
+  .final-actions {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    width: 100%;
+  }
+
+  .button,
+  .hero-actions .button,
+  .final-actions .button,
+  .header-cta {
+    width: 100%;
+    height: auto;
+    min-height: 48px;
+    padding: 13px 15px;
+    line-height: 1.25;
+    text-align: center;
+    white-space: normal;
+  }
+
+  .mobile-menu a {
+    width: 100%;
+    padding: 14px 8px;
+    font-size: 1.05rem;
+    line-height: 1.3;
+    white-space: normal;
+  }
+
+  .hero-tags,
+  .case-skill-list {
+    width: 100%;
+  }
+
+  .hero-tags span,
+  .case-skill-list span {
+    max-width: 100%;
+    line-height: 1.3;
+    text-align: left;
+  }
+
+  .section-heading h2,
+  .method-intro h2,
+  .cases-heading h2,
+  .leverpro-content h2,
+  .about-content h2,
+  .final-cta-box h2 {
+    max-width: 100%;
+    font-size: clamp(1.65rem, 7.7vw, 2.35rem);
+    line-height: 1.1;
+    letter-spacing: -.027em;
+  }
+
+  .section-lead,
+  .method-intro > p,
+  .leverpro-content .section-lead,
+  .final-cta-box p {
+    max-width: 100%;
+    font-size: .91rem;
+    line-height: 1.56;
+  }
+
+  .mobile-value-summary,
+  .proof-grid,
+  .problem-item,
+  .pillar-card,
+  .method-step,
+  .service-card,
+  .case-browser,
+  .case-panel,
+  .case-panel-side,
+  .case-panel-content,
+  .partner-benefits article,
+  .about-points article,
+  .insight-card,
+  .final-cta-box {
+    max-width: 100%;
+    overflow: visible;
+  }
+
+  .mobile-value-summary ul {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .mobile-value-summary li {
+    width: 100%;
+    font-size: .78rem;
+    line-height: 1.42;
+  }
+
+  .proof-grid article {
+    min-width: 0;
+    min-height: 0;
+  }
+
+  .proof-grid article strong,
+  .proof-grid article span {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .proof-grid article strong {
+    font-size: clamp(1.52rem, 7.2vw, 2.05rem);
+    line-height: 1.05;
+  }
+
+  .proof-grid article span {
+    font-size: .68rem;
+    line-height: 1.38;
+  }
+
+  .problem-item {
+    grid-template-columns: 32px minmax(0, 1fr);
+  }
+
+  .problem-item h3,
+  .pillar-card h3,
+  .service-card h3,
+  .insight-card h3 {
+    max-width: 100%;
+    font-size: clamp(1.05rem, 5.2vw, 1.28rem);
+    line-height: 1.24;
+    letter-spacing: -.015em;
+  }
+
+  .problem-item p,
+  .pillar-card > p,
+  .service-card > p,
+  .partner-benefits p,
+  .about-points p,
+  .insight-card p,
+  .case-story p,
+  .transparency-note p {
+    max-width: 100%;
+    font-size: .83rem;
+    line-height: 1.53;
+  }
+
+  .problem-item > strong {
+    grid-column: 2;
+    justify-self: start;
+    width: auto;
+    max-width: 100%;
+    white-space: normal;
+    line-height: 1.25;
+  }
+
+  .mobile-detail-toggle,
+  .case-mobile-toggle {
+    height: auto;
+    min-height: 42px;
+    padding: 10px 12px;
+    line-height: 1.25;
+    white-space: normal;
+  }
+
+  .method-step {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .method-step b {
+    width: 42px;
+    height: 42px;
+    margin-bottom: 10px;
+    font-size: 1.45rem;
+  }
+
+  .method-step > strong {
+    min-height: 0;
+    font-size: .93rem;
+    line-height: 1.35;
+  }
+
+  .service-card li,
+  .pillar-card li,
+  .method-step p {
+    font-size: .8rem;
+    line-height: 1.5;
+  }
+
+  .case-tabs {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .case-tab {
+    flex: 0 0 min(146px, 46vw);
+    width: min(146px, 46vw);
+    min-width: 0;
+    min-height: 68px;
+    padding: 10px;
+    white-space: normal;
+  }
+
+  .case-tab strong,
+  .case-tab small {
+    display: block;
+    width: 100%;
+    white-space: normal;
+    line-height: 1.25;
+    overflow: visible;
+  }
+
+  .case-panel,
+  .case-panel-side,
+  .case-panel-content {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .case-panel-content header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 8px;
+  }
+
+  .case-panel-content header h4 {
+    max-width: 100%;
+    font-size: 1.08rem;
+    line-height: 1.3;
+    letter-spacing: -.015em;
+  }
+
+  .case-index {
+    justify-self: start;
+    font-size: 1.45rem;
+  }
+
+  .company-context h3 {
+    max-width: 100%;
+    font-size: clamp(1.35rem, 6.8vw, 1.7rem);
+    line-height: 1.1;
+    letter-spacing: -.025em;
+  }
+
+  .company-context p {
+    max-width: 100%;
+    font-size: .8rem;
+    line-height: 1.48;
+  }
+
+  .company-logo-large,
+  .company-monogram {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .company-logo-large img {
+    max-width: 88%;
+    max-height: 88px;
+    margin-inline: auto;
+    object-fit: contain;
+  }
+
+  .leverpro-wordmark strong {
+    max-width: 100%;
+    font-size: clamp(2rem, 10vw, 3rem);
+    line-height: 1.03;
+    letter-spacing: -.04em;
+  }
+
+  .partner-benefits strong,
+  .about-points strong {
+    max-width: 100%;
+    line-height: 1.3;
+  }
+
+  .profile-caption strong {
+    max-width: 100%;
+    font-size: clamp(1.4rem, 7vw, 1.9rem);
+    line-height: 1.1;
+  }
+
+  /* Remove o corte intencional de texto aplicado na V4. */
+  .insight-card p {
+    display: block;
+    -webkit-line-clamp: unset;
+    -webkit-box-orient: initial;
+    max-height: none;
+    overflow: visible;
+  }
+
+  .insight-card {
+    min-height: 0;
+  }
+
+  .footer-grid,
+  .footer-bottom {
+    min-width: 0;
+  }
+
+  .footer-grid a,
+  .footer-grid p,
+  .footer-bottom {
+    overflow-wrap: anywhere;
+    white-space: normal;
+  }
+}
+
+@media (max-width: 390px) {
+  .container,
+  .header-shell {
+    width: calc(100% - 22px);
+  }
+
+  .hero h1 {
+    font-size: clamp(2.02rem, 10.4vw, 2.65rem);
+    line-height: 1.06;
+  }
+
+  .section-heading h2,
+  .method-intro h2,
+  .cases-heading h2,
+  .leverpro-content h2,
+  .about-content h2,
+  .final-cta-box h2 {
+    font-size: clamp(1.52rem, 7.4vw, 1.95rem);
+    line-height: 1.12;
+  }
+
+  .proof-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .proof-grid article {
+    padding: 13px 8px;
+  }
+
+  .case-tab {
+    flex-basis: min(136px, 44vw);
+    width: min(136px, 44vw);
+  }
+
+  .partner-badge,
+  .hero-lead,
+  .section-lead,
+  .method-intro > p,
+  .final-cta-box p {
+    font-size: .88rem;
+  }
+}
+
+@media (max-width: 340px) {
+  .container,
+  .header-shell {
+    width: calc(100% - 16px);
+  }
+
+  .hero h1 {
+    font-size: 1.9rem;
+    line-height: 1.08;
+    letter-spacing: -.025em;
+  }
+
+  .section-heading h2,
+  .method-intro h2,
+  .cases-heading h2,
+  .leverpro-content h2,
+  .about-content h2,
+  .final-cta-box h2 {
+    font-size: 1.43rem;
+  }
+
+  .proof-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .proof-grid article:nth-child(n) {
+    border-right: 0;
+    border-bottom: 1px solid var(--line-dark);
+  }
+
+  .proof-grid article:last-child {
+    border-bottom: 0;
+  }
+
+  .case-tab {
+    flex-basis: 124px;
+    width: 124px;
+  }
+}
+</style>
+</head>
 <body>
 <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
 <div aria-hidden="true" class="scroll-progress" id="scrollProgress"></div>
@@ -1384,7 +1862,7 @@ p, li { text-wrap: pretty; }
 <div class="container split-heading">
 <div class="section-heading reveal">
 <p class="eyebrow">A dor que custa mais do que parece</p>
-<h2>A empresa investiu em tecnologia, mas ainda opera por fora dela?</h2>
+<h2>Sua empresa ainda opera fora do sistema?</h2>
 <p class="section-lead">O desperdício aparece na rotina antes de chegar ao relatório financeiro.</p>
 </div>
 <div class="problem-list reveal">
@@ -1395,7 +1873,7 @@ p, li { text-wrap: pretty; }
 </article>
 <article class="problem-item">
 <span>02</span>
-<div><h3>A mesma informação digitada várias vezes</h3><p>O mesmo dado é lançado em diferentes áreas e sistemas.</p></div>
+<div><h3>A mesma informação lançada várias vezes</h3><p>O mesmo dado é lançado em diferentes áreas e sistemas.</p></div>
 <strong>Retrabalho</strong>
 </article>
 <article class="problem-item">
@@ -1507,7 +1985,7 @@ p, li { text-wrap: pretty; }
 <div class="cases-heading reveal">
 <div>
 <p class="eyebrow">Experiência em ambientes reais</p>
-<h2>Conhecimento técnico com leitura da operação.</h2>
+<h2>Conhecimento técnico aplicado à operação.</h2>
 <p class="section-lead">Escolha um contexto e veja desafio, atuação e resultado.</p>
 </div>
 <aside class="cases-summary"><small>TRAJETÓRIA APLICADA</small><strong>6 contextos profissionais</strong><p>Experiências apresentadas com contexto e transparência.</p></aside>
@@ -1567,7 +2045,7 @@ p, li { text-wrap: pretty; }
 </article>
 <div class="about-content reveal">
 <p class="eyebrow">Sobre a liderança da consultoria</p>
-<h2>Negócio, operação e tecnologia na mesma conversa.</h2>
+<h2>Negócio, operação e tecnologia conectados.</h2>
 <p class="section-lead">Gustavo Farias transforma problemas operacionais em processos, requisitos, testes, indicadores e decisões aplicáveis.</p>
 <div class="about-points">
 <article><span>01</span><div><strong>Leitura da operação real</strong><p>Entendimento do trabalho praticado por usuários e gestores — não apenas do processo desenhado.</p></div></article>
@@ -1585,7 +2063,7 @@ p, li { text-wrap: pretty; }
 <div class="container">
 <div class="section-heading section-heading-wide reveal">
 <p class="eyebrow">Operação Conectada</p>
-<h2>Conteúdo para quem precisa fazer a tecnologia gerar resultado.</h2>
+<h2>Conteúdo para fazer a tecnologia gerar resultado.</h2>
 <p class="section-lead">Ideias construídas a partir de situações reais de processo, sistema, dados, implantação e gestão.</p>
 </div>
 <div class="insight-grid">
@@ -2147,5 +2625,67 @@ p, li { text-wrap: pretty; }
     }
   });
 })();
-</script></body>
+</script>
+<script id="mobile-text-guard-v5">
+(() => {
+  "use strict";
+
+  const mobileQuery = window.matchMedia("(max-width: 720px)");
+  const fitSelectors = [
+    ".hero h1",
+    ".section-heading h2",
+    ".method-intro h2",
+    ".cases-heading h2",
+    ".leverpro-content h2",
+    ".about-content h2",
+    ".final-cta-box h2",
+    ".company-context h3",
+    ".case-panel-content header h4",
+    ".button"
+  ];
+
+  function resetElement(element) {
+    element.style.removeProperty("font-size");
+    element.removeAttribute("data-mobile-fit");
+  }
+
+  function fitElement(element) {
+    resetElement(element);
+    if (!mobileQuery.matches || element.clientWidth <= 0) return;
+
+    const computed = window.getComputedStyle(element);
+    let size = Number.parseFloat(computed.fontSize);
+    const minimum = element.matches("h1") ? 28 : element.matches("h2") ? 22 : 13;
+    let attempts = 0;
+
+    while (element.scrollWidth > element.clientWidth + 1 && size > minimum && attempts < 18) {
+      size -= 0.5;
+      element.style.fontSize = `${size}px`;
+      attempts += 1;
+    }
+
+    if (attempts > 0) element.setAttribute("data-mobile-fit", "true");
+  }
+
+  function fitAllText() {
+    document.querySelectorAll(fitSelectors.join(",")).forEach(fitElement);
+  }
+
+  let frame = 0;
+  function scheduleFit() {
+    if (frame) cancelAnimationFrame(frame);
+    frame = requestAnimationFrame(() => {
+      frame = 0;
+      fitAllText();
+    });
+  }
+
+  window.addEventListener("load", scheduleFit, { once: true });
+  window.addEventListener("resize", scheduleFit, { passive: true });
+  window.addEventListener("orientationchange", scheduleFit, { passive: true });
+  document.fonts?.ready.then(scheduleFit).catch(() => {});
+  scheduleFit();
+})();
+</script>
+</body>
 </html>

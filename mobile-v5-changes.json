@@ -1,0 +1,14 @@
+{
+  "version": "v5",
+  "base": "cruz_farias_site_mobile_v4",
+  "changes": [
+    "mobile typography reduced",
+    "all mobile text wraps",
+    "insight line clamp removed",
+    "buttons wrap safely",
+    "case tabs and case headers wrap",
+    "responsive breakpoints 720, 390, 340",
+    "text overflow JS fallback",
+    "selected long headings shortened"
+  ]
+}
