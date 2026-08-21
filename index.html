@@ -4,13 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#07111f">
-  <meta name="color-scheme" content="dark">
+  <meta name="color-scheme" content="dark light">
 
   <title>Cruz & Farias | Operação Conectada, ERP, WMS e Processos</title>
   <meta name="description" content="A Cruz & Farias conecta processos, ERP, WMS, dados, pessoas e governança para reduzir retrabalho e transformar sistemas em uma operação previsível.">
   <meta name="robots" content="index,follow,max-image-preview:large">
   <link rel="canonical" href="https://www.cruzfarias.com.br/">
-  <!-- Identidade no navegador / favicon -->
+
   <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
@@ -18,7 +18,9 @@
   <link rel="icon" href="assets/favicon-16x16.png" type="image/png" sizes="16x16">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" sizes="180x180">
   <link rel="manifest" href="site.webmanifest">
-  <link rel="preload" href="assets/gustavo-farias.webp" as="image" type="image/webp">
+
+  <!-- A imagem crítica agora é a imagem do Hero, não a foto da seção Sobre -->
+  <link rel="preload" href="assets/portfolio/hero-dashboard.webp" as="image" type="image/webp" fetchpriority="high">
 
   <meta property="og:locale" content="pt_BR">
   <meta property="og:type" content="website">
@@ -84,7 +86,7 @@
         "name": "Gustavo Henrique Farias",
         "url": "https://www.cruzfarias.com.br/#sobre",
         "jobTitle": "Especialista em Operação Conectada",
-        "image": "https://www.cruzfarias.com.br/assets/gustavo-farias-square.webp",
+        "image": "https://www.cruzfarias.com.br/assets/portfolio/gustavo-executivo.webp",
         "worksFor": {"@id": "https://www.cruzfarias.com.br/#organization"},
         "sameAs": [
           "https://www.linkedin.com/in/gustavohenriquefarias/",
@@ -103,21 +105,14 @@
   }
   </script>
 
-  <style>
-    .partner-badge {
-      background: rgb(8 11 29);
-    }
-  </style>
-
   <!-- Microsoft Clarity -->
   <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "xwqf83mrk9");
   </script>
-
 </head>
 <body>
   <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
@@ -131,6 +126,8 @@
 
       <nav class="desktop-nav" aria-label="Navegação principal">
         <a href="#solucoes">Soluções</a>
+        <a href="#pratica">Na prática</a>
+        <a href="#execucao">Execução</a>
         <a href="#metodo">Método</a>
         <a href="#experiencias">Experiências</a>
         <a href="#leverpro">LeverPro</a>
@@ -148,6 +145,8 @@
 
     <nav class="mobile-menu" id="mobileMenu" aria-label="Navegação móvel" hidden>
       <a href="#solucoes">Soluções</a>
+      <a href="#pratica">Na prática</a>
+      <a href="#execucao">Execução</a>
       <a href="#metodo">Método Conecta</a>
       <a href="#experiencias">Experiências</a>
       <a href="#leverpro">Parceria LeverPro</a>
@@ -157,6 +156,7 @@
   </header>
 
   <main id="conteudo">
+    <!-- HERO: agora mostra atuação e autoridade, não apenas um gráfico abstrato -->
     <section class="hero section-dark" id="inicio">
       <div class="hero-orb hero-orb-one" aria-hidden="true"></div>
       <div class="hero-orb hero-orb-two" aria-hidden="true"></div>
@@ -184,34 +184,30 @@
           </div>
         </div>
 
-        <aside class="operation-console reveal" aria-label="Modelo de Operação Conectada">
-          <div class="console-header">
-            <div>
-              <small>MODELO DE VALOR</small>
-              <strong>Operação Conectada</strong>
-            </div>
-            <span class="live-status"><i aria-hidden="true"></i> Em evolução</span>
-          </div>
+        <div class="hero-visual reveal">
+          <figure class="hero-photo-card">
+            <img
+              src="assets/portfolio/hero-dashboard.webp"
+              alt="Gustavo Farias apresentando indicadores e resultados em uma reunião executiva"
+              width="1448"
+              height="1086"
+              fetchpriority="high"
+              decoding="async">
+            <div class="hero-photo-shade" aria-hidden="true"></div>
+            <figcaption>
+              <span class="visual-kicker">DA OPERAÇÃO À DECISÃO</span>
+              <strong>Processos, sistemas e dados na mesma conversa.</strong>
+            </figcaption>
+          </figure>
 
-          <div class="console-core">
-            <div class="core-ring ring-one" aria-hidden="true"></div>
-            <div class="core-ring ring-two" aria-hidden="true"></div>
-            <div class="core-center">
-              <small>RESULTADO</small>
-              <strong>Controle<br>e previsibilidade</strong>
+          <div class="hero-value-card" aria-label="Modelo de Operação Conectada">
+            <small>OPERAÇÃO CONECTADA</small>
+            <div class="mini-flow" aria-hidden="true">
+              <span>Processos</span><i>→</i><span>Sistemas</span><i>→</i><span>Dados</span><i>→</i><span>Pessoas</span>
             </div>
-            <div class="core-node node-process"><span>01</span><strong>Processos</strong><small>claros</small></div>
-            <div class="core-node node-system"><span>02</span><strong>Sistemas</strong><small>aderentes</small></div>
-            <div class="core-node node-data"><span>03</span><strong>Dados</strong><small>confiáveis</small></div>
-            <div class="core-node node-people"><span>04</span><strong>Pessoas</strong><small>preparadas</small></div>
+            <strong>Controle e previsibilidade</strong>
           </div>
-
-          <div class="console-footer">
-            <div><small>ENTENDER</small><strong>Causas</strong></div>
-            <div><small>TRANSFORMAR</small><strong>Operação</strong></div>
-            <div><small>SUSTENTAR</small><strong>Evolução</strong></div>
-          </div>
-        </aside>
+        </div>
       </div>
     </section>
 
@@ -299,25 +295,196 @@
       </div>
     </section>
 
-    <section class="section section-soft" id="metodo">
+    <!-- NOVA SEÇÃO: transforma a promessa em prova visual -->
+    <section class="section section-practice" id="pratica">
       <div class="container">
-        <div class="method-intro reveal">
+        <div class="practice-heading reveal">
           <div>
-            <p class="eyebrow">Metodologia proprietária</p>
-            <h2>Método <span>Conecta.</span></h2>
+            <p class="eyebrow">Operação Conectada na prática</p>
+            <h2>Não basta dizer o que fazemos. <span>É preciso mostrar a execução.</span></h2>
           </div>
-          <p>Estratégia, operação, sistema, dado e usuário tratados como partes de uma mesma transformação — com critérios claros, entregáveis e acompanhamento.</p>
+          <p class="section-lead">Da leitura do campo ao desenho do processo, da implantação do sistema ao treinamento e à tomada de decisão.</p>
         </div>
 
-        <div class="method-track" aria-label="Etapas do Método Conecta">
-          <article class="method-step reveal"><b>C</b><span>Compreender</span><strong>Estratégia e prioridades</strong><p>Direção, objetivos, dores, riscos e decisões críticas.</p></article>
-          <article class="method-step reveal"><b>O</b><span>Observar</span><strong>A operação real</strong><p>Rotina, usuários, planilhas, aprovações e desvios.</p></article>
-          <article class="method-step reveal"><b>N</b><span>Normalizar</span><strong>Regras e responsabilidades</strong><p>Cadastros, fontes, papéis, padrões e critérios.</p></article>
-          <article class="method-step reveal"><b>E</b><span>Estruturar</span><strong>O processo futuro</strong><p>TO BE, prioridades, riscos, custos e benefícios.</p></article>
-          <article class="method-step reveal"><b>C</b><span>Conduzir</span><strong>A implantação</strong><p>Configuração, integração, teste, homologação e entrega.</p></article>
-          <article class="method-step reveal"><b>T</b><span>Treinar</span><strong>Pessoas e governança</strong><p>Capacitação, materiais, suporte e gestão da mudança.</p></article>
-          <article class="method-step reveal"><b>A</b><span>Acompanhar</span><strong>Resultados e evolução</strong><p>Indicadores, adesão, benefícios e melhoria contínua.</p></article>
+        <div class="practice-grid">
+          <article class="practice-card practice-card-large reveal">
+            <img src="assets/portfolio/processos-vidro.webp" alt="Gustavo Farias desenhando um fluxo de processo em uma parede de vidro" width="1536" height="1024" loading="lazy" decoding="async">
+            <div class="practice-overlay"></div>
+            <div class="practice-copy">
+              <small>PROCESSOS</small>
+              <h3>Entender antes de automatizar.</h3>
+              <p>Mapeamento AS IS, desenho TO BE, responsabilidades, gargalos, riscos e regras de negócio.</p>
+            </div>
+          </article>
+
+          <article class="practice-card reveal">
+            <img src="assets/portfolio/construcao-campo.webp" alt="Profissional em obra com capacete, colete e notebook acompanhando a operação de campo" width="1024" height="1536" loading="lazy" decoding="async">
+            <div class="practice-overlay"></div>
+            <div class="practice-copy">
+              <small>OPERAÇÃO</small>
+              <h3>Leitura do processo onde ele acontece.</h3>
+              <p>Campo, obra, logística e escritório conectados à mesma lógica de gestão.</p>
+            </div>
+          </article>
+
+          <article class="practice-card reveal">
+            <img src="assets/portfolio/treinamento-sankhya.webp" alt="Treinamento corporativo sobre sistema ERP Sankhya" width="1448" height="1086" loading="lazy" decoding="async">
+            <div class="practice-overlay"></div>
+            <div class="practice-copy">
+              <small>SISTEMAS</small>
+              <h3>ERP funcionando no processo real.</h3>
+              <p>Implantação, homologação, uso correto, governança e evolução.</p>
+            </div>
+          </article>
+
+          <article class="practice-card practice-card-wide reveal">
+            <img src="assets/portfolio/adocao-equipe.webp" alt="Gustavo Farias conduzindo treinamento com equipe em ambiente corporativo" width="1447" height="1087" loading="lazy" decoding="async">
+            <div class="practice-overlay"></div>
+            <div class="practice-copy">
+              <small>PESSOAS</small>
+              <h3>Tecnologia sem adoção é apenas software instalado.</h3>
+              <p>Capacitação, documentação, governança e acompanhamento para sustentar a mudança.</p>
+            </div>
+          </article>
         </div>
+      </div>
+    </section>
+
+    <section class="section section-light execution-section" id="execucao">
+      <div class="container">
+        <div class="section-heading section-heading-wide reveal">
+          <p class="eyebrow">Mais prática. Mais credibilidade.</p>
+          <h2>Execução visível em obra, logística, treinamento e tomada de decisão.</h2>
+          <p class="section-lead">Mantemos a proposta consultiva e estratégica, mas agora o site mostra com mais força a atuação prática: presença em campo, alinhamento com lideranças, solução aplicada no processo real e engajamento das equipes.</p>
+        </div>
+
+        <div class="execution-grid">
+          <article class="execution-feature reveal">
+            <div class="execution-feature-visual">
+              <img src="assets/portfolio/logistica-execucao.png" alt="Atuação prática em centro logístico, com acompanhamento da operação, análise em laptop e interação com a equipe" width="1400" height="1050" loading="lazy" decoding="async">
+              <span class="execution-badge">EXECUÇÃO APLICADA</span>
+            </div>
+            <div class="execution-feature-copy">
+              <small>DA ANÁLISE À SOLUÇÃO</small>
+              <h3>Solução aplicada junto da operação, não apenas apresentada em slide.</h3>
+              <p>Leitura de processo, acompanhamento em campo, validação com a equipe, alinhamento com liderança, correção de fluxo, apoio à implantação e sustentação da mudança.</p>
+              <ul class="execution-checklist">
+                <li>Obra, centro logístico, escritório e liderança conectados na mesma lógica de gestão</li>
+                <li>Discussão prática de problemas, prioridades, controles e pontos de atenção</li>
+                <li>Atuação para transformar sistema, processo e pessoa em execução consistente</li>
+              </ul>
+            </div>
+          </article>
+
+          <div class="execution-side">
+            <article class="execution-mini-card reveal">
+              <img src="assets/portfolio/treinamento-equipe-real.png" alt="Treinamento presencial com equipe em sala, reforçando adoção, engajamento e aprendizagem" width="1400" height="1050" loading="lazy" decoding="async">
+              <div class="execution-mini-copy">
+                <small>ENGAJAMENTO DAS EQUIPES</small>
+                <h3>Treinamento que aproxima o time da mudança.</h3>
+                <p>Capacitação prática, linguagem acessível e conexão entre regra de negócio, processo e sistema.</p>
+              </div>
+            </article>
+
+            <article class="execution-mini-card reveal">
+              <img src="assets/portfolio/obra-campo-humano.png" alt="Atuação em obra, mostrando presença em campo e leitura da execução real" width="1400" height="1050" loading="lazy" decoding="async">
+              <div class="execution-mini-copy">
+                <small>OBRA E CAMPO</small>
+                <h3>Leitura da rotina onde a operação realmente acontece.</h3>
+                <p>Mais aderência entre planejamento, suprimentos, execução e informação gerencial.</p>
+              </div>
+            </article>
+
+            <article class="execution-mini-card reveal">
+              <img src="assets/portfolio/reuniao-solucao.png" alt="Reunião de trabalho mostrando discussão de soluções, indicadores e tomada de decisão com equipe" width="1400" height="1050" loading="lazy" decoding="async">
+              <div class="execution-mini-copy">
+                <small>GESTÃO E DECISÃO</small>
+                <h3>Condução de solução com visão executiva e proximidade humana.</h3>
+                <p>Discussões mais claras, prioridades melhor definidas e maior confiança para decidir.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark human-section" id="humano">
+      <div class="container human-layout">
+        <div class="human-copy reveal">
+          <p class="eyebrow">O lado humano da transformação</p>
+          <h2>Processo, sistema e dado só viram resultado quando as pessoas entram na solução.</h2>
+          <p class="section-lead">A consultoria ganha mais credibilidade quando mostra proximidade com a realidade dos times. Por isso, além da estratégia, o site agora reforça execução, treinamento, acompanhamento e colaboração com equipes de obra, logística e gestão.</p>
+
+          <div class="human-points">
+            <article>
+              <span>01</span>
+              <div><strong>Escuta ativa da operação</strong><p>O diagnóstico considera quem executa, quem aprova e quem precisa decidir.</p></div>
+            </article>
+            <article>
+              <span>02</span>
+              <div><strong>Treinamento com aplicação prática</strong><p>O foco deixa de ser “mostrar o sistema” e passa a ser “fazer a rotina funcionar”.</p></div>
+            </article>
+            <article>
+              <span>03</span>
+              <div><strong>Presença em campo e no centro logístico</strong><p>Obra, armazém e escritório são tratados como partes da mesma operação.</p></div>
+            </article>
+            <article>
+              <span>04</span>
+              <div><strong>Acompanhamento e sustentação</strong><p>Depois da definição do processo, seguimos próximos para apoiar adoção, governança e melhoria contínua.</p></div>
+            </article>
+          </div>
+        </div>
+
+        <div class="human-gallery">
+          <figure class="human-gallery-card reveal">
+            <img src="assets/portfolio/execucao-processo.png" alt="Atuação prática em sala de reunião com fluxo do processo e notebook" width="1400" height="1050" loading="lazy" decoding="async">
+            <figcaption><strong>Execução e processo</strong><span>Leitura técnica com foco na rotina real.</span></figcaption>
+          </figure>
+          <figure class="human-gallery-card reveal">
+            <img src="assets/portfolio/planejamento-operacional.png" alt="Planejamento operacional com análise de fluxo, documentos e estruturação de solução" width="1400" height="1050" loading="lazy" decoding="async">
+            <figcaption><strong>Planejamento aplicado</strong><span>Organização do futuro processo com clareza e método.</span></figcaption>
+          </figure>
+          <figure class="human-gallery-card reveal">
+            <img src="assets/portfolio/logistica-campo.png" alt="Profissional caminhando em armazém para acompanhar a operação logística" width="1050" height="1400" loading="lazy" decoding="async">
+            <figcaption><strong>Presença no campo</strong><span>Vivência prática em ambiente logístico.</span></figcaption>
+          </figure>
+          <figure class="human-gallery-card reveal">
+            <img src="assets/portfolio/treinamento-equipe-real.png" alt="Equipe em treinamento presencial, demonstrando participação e engajamento" width="1400" height="1050" loading="lazy" decoding="async">
+            <figcaption><strong>Engajamento das equipes</strong><span>Mais adesão, mais confiança e mais padronização.</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="metodo">
+      <div class="container method-layout">
+        <div>
+          <div class="method-intro reveal">
+            <div>
+              <p class="eyebrow">Metodologia proprietária</p>
+              <h2>Método <span>Conecta.</span></h2>
+            </div>
+            <p>Estratégia, operação, sistema, dado e usuário tratados como partes de uma mesma transformação — com critérios claros, entregáveis e acompanhamento.</p>
+          </div>
+
+          <div class="method-track" aria-label="Etapas do Método Conecta">
+            <article class="method-step reveal"><b>C</b><span>Compreender</span><strong>Estratégia e prioridades</strong><p>Direção, objetivos, dores, riscos e decisões críticas.</p></article>
+            <article class="method-step reveal"><b>O</b><span>Observar</span><strong>A operação real</strong><p>Rotina, usuários, planilhas, aprovações e desvios.</p></article>
+            <article class="method-step reveal"><b>N</b><span>Normalizar</span><strong>Regras e responsabilidades</strong><p>Cadastros, fontes, papéis, padrões e critérios.</p></article>
+            <article class="method-step reveal"><b>E</b><span>Estruturar</span><strong>O processo futuro</strong><p>TO BE, prioridades, riscos, custos e benefícios.</p></article>
+            <article class="method-step reveal"><b>C</b><span>Conduzir</span><strong>A implantação</strong><p>Configuração, integração, teste, homologação e entrega.</p></article>
+            <article class="method-step reveal"><b>T</b><span>Treinar</span><strong>Pessoas e governança</strong><p>Capacitação, materiais, suporte e gestão da mudança.</p></article>
+            <article class="method-step reveal"><b>A</b><span>Acompanhar</span><strong>Resultados e evolução</strong><p>Indicadores, adesão, benefícios e melhoria contínua.</p></article>
+          </div>
+        </div>
+
+        <aside class="method-photo reveal">
+          <img src="assets/portfolio/processos-vidro.webp" alt="Gustavo Farias estruturando um fluxo durante atividade de desenho de processo" width="1536" height="1024" loading="lazy" decoding="async">
+          <div class="method-photo-caption">
+            <small>DIAGNÓSTICO + DESENHO + EXECUÇÃO</small>
+            <strong>O processo futuro nasce da operação real.</strong>
+          </div>
+        </aside>
       </div>
     </section>
 
@@ -357,6 +524,7 @@
       </div>
     </section>
 
+    <!-- EXPERIÊNCIAS: cada contexto agora tem imagem + desafio + atuação + valor -->
     <section class="section section-dark cases-section" id="experiencias" data-cases>
       <div class="container">
         <div class="cases-heading reveal">
@@ -375,7 +543,7 @@
 
         <div class="transparency-note reveal">
           <span aria-hidden="true">i</span>
-          <p><strong>Transparência profissional:</strong> as marcas representam empresas e ambientes nos quais Gustavo Farias participou ou liderou iniciativas. Isso não significa, necessariamente, contratação direta da Cruz & Farias Consultoria.</p>
+          <p><strong>Transparência profissional:</strong> as marcas representam empresas e ambientes nos quais Gustavo Farias participou ou liderou iniciativas. Isso não significa, necessariamente, contratação direta da Cruz & Farias Consultoria. Imagens institucionais servem para ilustrar os tipos de atuação e não devem ser interpretadas como registro documental de um cliente específico.</p>
         </div>
       </div>
     </section>
@@ -415,10 +583,7 @@
       <div class="container about-grid">
         <article class="profile-card reveal">
           <div class="profile-visual">
-            <picture>
-              <source srcset="assets/gustavo-farias.webp" type="image/webp">
-              <img src="assets/gustavo-farias.jpg" alt="Gustavo Farias, fundador da Cruz & Farias Consultoria" width="1200" height="1500" loading="lazy" decoding="async">
-            </picture>
+            <img src="assets/portfolio/gustavo-executivo.webp" alt="Gustavo Farias, fundador da Cruz & Farias Consultoria" width="1086" height="1448" loading="lazy" decoding="async">
             <div class="profile-overlay"></div>
             <div class="profile-caption">
               <span>ESPECIALISTA EM OPERAÇÃO CONECTADA</span>
@@ -431,7 +596,7 @@
         <div class="about-content reveal">
           <p class="eyebrow">Sobre a liderança da consultoria</p>
           <h2>Negócio, operação e tecnologia na mesma conversa.</h2>
-          <p class="section-lead">Gustavo Farias possui experiência prática em construção civil, logística, ERP, WMS, dados, governança, treinamento e condução de mudanças.</p>
+          <p class="section-lead">Experiência prática em construção civil, logística, ERP, WMS, dados, governança, treinamento e condução de mudanças.</p>
 
           <div class="about-points">
             <article><span>01</span><div><strong>Leitura da operação real</strong><p>Entendimento do trabalho praticado por usuários e gestores — não apenas do processo desenhado.</p></div></article>
@@ -496,6 +661,8 @@
       <div class="footer-links">
         <strong>Navegação</strong>
         <a href="#solucoes">Soluções</a>
+        <a href="#pratica">Na prática</a>
+        <a href="#execucao">Execução</a>
         <a href="#metodo">Método Conecta</a>
         <a href="#experiencias">Experiências</a>
         <a href="#leverpro">Parceiro LeverPro</a>

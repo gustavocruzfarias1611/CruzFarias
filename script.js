@@ -1,431 +1,245 @@
 (() => {
-  "use strict";
-
-  const CONFIG = {
-    diagnosticBase: "https://diagnostico-pi-one.vercel.app/",
-    whatsappNumber: "5516991940396"
-  };
+  'use strict';
 
   const $ = (selector, scope = document) => scope.querySelector(selector);
   const $$ = (selector, scope = document) => [...scope.querySelectorAll(selector)];
 
-  const escapeHtml = (value) => String(value)
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#039;");
+  // Ano do rodapé
+  const currentYear = $('#currentYear');
+  if (currentYear) currentYear.textContent = new Date().getFullYear();
 
-  /* Links de conversão centralizados */
-  $$('[data-diagnostic]').forEach((link) => {
-    const placement = link.dataset.placement || "site";
-    const url = new URL(CONFIG.diagnosticBase);
-    url.searchParams.set("utm_source", "site_cruz_farias");
-    url.searchParams.set("utm_medium", placement);
-    url.searchParams.set("utm_campaign", "operacao_conectada");
-    link.href = url.toString();
-  });
-
-  $$('[data-whatsapp]').forEach((link) => {
-    const message = link.dataset.message || "Olá, Gustavo. Conheci o site da Cruz & Farias e gostaria de conversar.";
-    link.href = `https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent(message)}`;
-    link.target = "_blank";
-    link.rel = "noopener noreferrer";
-  });
-
-  /* Menu móvel */
+  // Menu mobile
   const menuToggle = $('#menuToggle');
   const mobileMenu = $('#mobileMenu');
 
-  function setMenu(open) {
+  const closeMenu = () => {
     if (!menuToggle || !mobileMenu) return;
-    menuToggle.setAttribute('aria-expanded', String(open));
-    mobileMenu.hidden = !open;
-    document.body.classList.toggle('menu-open', open);
+    menuToggle.setAttribute('aria-expanded', 'false');
+    mobileMenu.hidden = true;
+  };
+
+  if (menuToggle && mobileMenu) {
+    menuToggle.addEventListener('click', () => {
+      const isOpen = menuToggle.getAttribute('aria-expanded') === 'true';
+      menuToggle.setAttribute('aria-expanded', String(!isOpen));
+      mobileMenu.hidden = isOpen;
+    });
+
+    $$('a', mobileMenu).forEach(link => link.addEventListener('click', closeMenu));
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 1180) closeMenu();
+    });
   }
 
-  menuToggle?.addEventListener('click', () => {
-    setMenu(menuToggle.getAttribute('aria-expanded') !== 'true');
-  });
-
-  $$('#mobileMenu a').forEach((link) => link.addEventListener('click', () => setMenu(false)));
-  window.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') setMenu(false);
-  });
-
-  /* Header, progresso e voltar ao topo */
-  const header = $('.site-header');
+  // Barra de progresso e botão de voltar ao topo
   const progress = $('#scrollProgress');
   const backTop = $('#backTop');
 
-  function updateScrollUI() {
-    const scrollTop = window.scrollY || document.documentElement.scrollTop;
-    const maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
-    const percent = Math.min(100, Math.max(0, (scrollTop / maxScroll) * 100));
-
-    if (progress) progress.style.width = `${percent}%`;
-    header?.classList.toggle('scrolled', scrollTop > 20);
-    backTop?.classList.toggle('visible', scrollTop > 700);
-  }
+  const updateScrollUI = () => {
+    const doc = document.documentElement;
+    const scrollable = doc.scrollHeight - doc.clientHeight;
+    const ratio = scrollable > 0 ? (doc.scrollTop / scrollable) : 0;
+    if (progress) progress.style.width = `${Math.min(100, Math.max(0, ratio * 100))}%`;
+    if (backTop) backTop.classList.toggle('is-visible', doc.scrollTop > 700);
+  };
 
   updateScrollUI();
   window.addEventListener('scroll', updateScrollUI, { passive: true });
 
-  /* Reveal acessível e leve */
-  const revealItems = $$('.reveal');
+  // Animação de entrada respeitando prefers-reduced-motion
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const revealItems = $$('.reveal');
 
   if (reduceMotion || !('IntersectionObserver' in window)) {
-    revealItems.forEach((item) => item.classList.add('is-visible'));
+    revealItems.forEach(el => el.classList.add('is-visible'));
   } else {
-    const observer = new IntersectionObserver((entries, instance) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add('is-visible');
-        instance.unobserve(entry.target);
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
       });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px' });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-    revealItems.forEach((item) => observer.observe(item));
+    revealItems.forEach(el => observer.observe(el));
   }
 
-  /* Experiências aplicadas */
-  const casesRoot = $('[data-cases]');
+  // WhatsApp: preserva o número e injeta mensagem sem quebrar o link
+  $$('[data-whatsapp]').forEach(link => {
+    link.addEventListener('click', (event) => {
+      const message = link.dataset.message;
+      if (!message) return;
+      const base = 'https://wa.me/5516991940396';
+      link.href = `${base}?text=${encodeURIComponent(message)}`;
+    });
+  });
 
-  if (casesRoot) {
-    const cases = [
-      {
-            id: "mngt",
-            name: "Grupo MNGT",
-            tab: "Grupo MNGT",
-            logo: "assets/logos/grupo-mngt.png",
-            logoAlt: "Grupo MNGT",
-            logoBg: "#282626",
-            category: "Ecossistema corporativo",
-            evidence: "Experiência profissional",
-            accent: "#d5aa55",
-            headline: "Governança integrada para construção, logística e áreas corporativas.",
-            summary: "Atuação transversal na evolução de processos, sistemas, dados, custos, fornecedores e prioridades do grupo.",
-            challenge: "Demandas, sistemas e rotinas distribuídos entre empresas e áreas, com necessidade de padronização e visibilidade executiva.",
-            action: "Portfólio corporativo, critérios de priorização, governança, acessos, aprovações, treinamento e acompanhamento de fornecedores.",
-            result: "Maior clareza sobre prioridades, responsabilidades, riscos e evolução das iniciativas de sistemas.",
-            highlights: [
-                  [
-                        "3 empresas",
-                        "governança corporativa"
-                  ],
-                  [
-                        "Multissistema",
-                        "ERP, WMS e BI"
-                  ],
-                  [
-                        "PMO",
-                        "prioridades e evolução"
-                  ]
-            ],
-            skills: [
-                  "Governança",
-                  "PMO de Sistemas",
-                  "Gestão de fornecedores",
-                  "Acessos",
-                  "Indicadores",
-                  "Treinamento"
-            ]
-      },
-      {
-            id: "area-incrivel",
-            name: "Área Incrível Incorporadora",
-            tab: "Área Incrível",
-            logo: "assets/logos/area-incrivel.png",
-            logoAlt: "Área Incrível Incorporadora",
-            logoBg: "#ffffff",
-            category: "Construção e incorporação",
-            evidence: "Experiência profissional",
-            accent: "#ef5b5b",
-            headline: "Governança de ERP conectando obra, planejamento, suprimentos, contratos e gestão.",
-            summary: "Padronização de processos e melhor aproveitamento dos sistemas corporativos na rotina da construção civil.",
-            challenge: "Aprovações descentralizadas, controles paralelos e baixa integração entre planejamento, execução, qualidade e gestão.",
-            action: "Fluxos AS IS/TO BE, matrizes de aprovação, acessos, integração entre plataformas, procedimentos e treinamentos.",
-            result: "Processos mais claros, responsabilidades definidas e maior rastreabilidade das operações no ERP.",
-            highlights: [
-                  [
-                        "6 processos",
-                        "jornadas críticas"
-                  ],
-                  [
-                        "5 fluxos",
-                        "aprovações"
-                  ],
-                  [
-                        "+100%",
-                        "capacidade no Prevision"
-                  ]
-            ],
-            skills: [
-                  "Sienge",
-                  "Prevision",
-                  "Mobuss",
-                  "Power BI",
-                  "ERP",
-                  "Governança de obra"
-            ]
-      },
-      {
-            id: "mais-armazem",
-            name: "Mais Armazém",
-            tab: "Mais Armazém",
-            logo: "assets/logos/mais-armazem.png",
-            logoAlt: "Mais Armazém",
-            logoBg: "#f8fbfb",
-            category: "Logística e armazenagem",
-            evidence: "Case aplicado",
-            accent: "#45d1d8",
-            headline: "Estruturação da jornada WMS para transformar implantação em operação controlada.",
-            summary: "Preparação, validação e governança do WMS, conectando requisitos, depositantes, integrações, testes e usuários.",
-            challenge: "Escopo pouco detalhado, regras distintas por operação e integrações que exigiam validação antes do Go-Live.",
-            action: "Mapeamento ponta a ponta, roteiros de teste, critérios de aceite, pendências, KPIs e capacitação.",
-            result: "Maior segurança para homologação, tomada de decisão e sustentação da operação logística.",
-            highlights: [
-                  [
-                        "8 etapas",
-                        "portaria à expedição"
-                  ],
-                  [
-                        "4 ambientes",
-                        "integração sistêmica"
-                  ],
-                  [
-                        "6 grupos",
-                        "indicadores logísticos"
-                  ]
-            ],
-            skills: [
-                  "WMS Senior",
-                  "Sankhya",
-                  "SAP",
-                  "Homologação",
-                  "Inventário",
-                  "Go-Live"
-            ]
-      },
-      {
-            id: "centro-logistico",
-            name: "Centro Logístico Rio Claro",
-            tab: "Centro Logístico",
-            logo: "assets/logos/centro-logistico-rio-claro.png",
-            logoAlt: "Centro Logístico Rio Claro",
-            logoBg: "#0c1831",
-            category: "Operação logística",
-            evidence: "Experiência profissional",
-            accent: "#86a9e8",
-            headline: "Mais visibilidade para uma operação que depende de cadastro, fluxo e execução sincronizados.",
-            summary: "Aplicação de práticas de governança e integração para fortalecer a rotina logística e administrativa.",
-            challenge: "Informações dispersas, cadastros sem padrão e baixa visibilidade sobre o andamento das rotinas.",
-            action: "Organização de fluxos, responsabilidades, cadastros, indicadores e pontos de integração.",
-            result: "Base mais organizada para acompanhamento, confiabilidade das informações e evolução dos controles.",
-            highlights: [
-                  [
-                        "Operação",
-                        "rotina integrada"
-                  ],
-                  [
-                        "Cadastros",
-                        "base confiável"
-                  ],
-                  [
-                        "Indicadores",
-                        "visão gerencial"
-                  ]
-            ],
-            skills: [
-                  "Processos logísticos",
-                  "Cadastros",
-                  "ERP",
-                  "WMS",
-                  "Power BI",
-                  "Planos de ação"
-            ]
-      },
-      {
-            id: "vilaurbe",
-            name: "Vilaurbe Construtora e Incorporadora",
-            tab: "Vilaurbe",
-            logo: "assets/logos/vilaurbe.png",
-            logoAlt: "Vilaurbe Construtora e Incorporadora",
-            logoBg: "#000000",
-            category: "Construção e incorporação",
-            evidence: "Experiência profissional",
-            accent: "#f04444",
-            headline: "Dados e automações transformando informação dispersa em gestão mais acessível.",
-            summary: "Analytics, integrações, automações e indicadores aplicados a diferentes áreas da construtora e incorporadora.",
-            challenge: "Relatórios manuais, bases descentralizadas e baixa velocidade na consolidação gerencial.",
-            action: "Integração de fontes, modelagem, dashboards, automações e regras de indicadores.",
-            result: "Maior confiabilidade, velocidade e disponibilidade das informações para a gestão.",
-            highlights: [
-                  [
-                        "40%",
-                        "menos processamento"
-                  ],
-                  [
-                        "até 65%",
-                        "menos tempo operacional"
-                  ],
-                  [
-                        "8 áreas",
-                        "soluções aplicadas"
-                  ]
-            ],
-            skills: [
-                  "Power BI",
-                  "SQL",
-                  "Python",
-                  "APIs",
-                  "ERP",
-                  "CRM"
-            ]
-      },
-      {
-            id: "saffi",
-            name: "Saffi Consultoria",
-            tab: "Saffi",
-            logo: "assets/logos/saffi.png",
-            logoAlt: "Saffi Consultoria",
-            logoBg: "#ffffff",
-            category: "Consultoria e dados",
-            evidence: "Experiência aplicada",
-            accent: "#68c77a",
-            headline: "Tecnologia traduzida em entrega organizada, prática e orientada ao negócio.",
-            summary: "Soluções em ambiente consultivo, aproximando necessidade empresarial, organização de informação e execução técnica.",
-            challenge: "Demandas com diferentes níveis de clareza, dados dispersos e necessidade de estruturar soluções utilizáveis.",
-            action: "Leitura do problema, organização de requisitos, pipelines, dashboards, automações e apoio técnico.",
-            result: "Entregas mais claras, aplicáveis e alinhadas à necessidade real da operação e dos clientes.",
-            highlights: [
-                  [
-                        "Consultoria",
-                        "visão de negócio"
-                  ],
-                  [
-                        "Dados",
-                        "integração aplicada"
-                  ],
-                  [
-                        "Clareza",
-                        "entrega utilizável"
-                  ]
-            ],
-            skills: [
-                  "Engenharia de dados",
-                  "Dashboards",
-                  "Integrações",
-                  "Automação",
-                  "Documentação",
-                  "Processos"
-            ]
-      }
-];
-
-    const tabs = $('#caseTabs', casesRoot);
-    const panel = $('#casePanel', casesRoot);
-    let activeIndex = 0;
-
-    function renderTabs() {
-      tabs.innerHTML = cases.map((item, index) => `
-        <button
-          class="case-tab"
-          id="case-tab-${escapeHtml(item.id)}"
-          type="button"
-          role="tab"
-          data-index="${index}"
-          aria-selected="${index === activeIndex}"
-          aria-controls="casePanel"
-          tabindex="${index === activeIndex ? 0 : -1}"
-          style="--case-accent:${escapeHtml(item.accent)};--logo-bg:${escapeHtml(item.logoBg)}"
-        >
-          <span class="case-tab-logo">
-            <img src="${escapeHtml(item.logo)}" alt="" width="1200" height="400" loading="lazy" decoding="async">
-          </span>
-          <span class="case-tab-copy">
-            <strong>${escapeHtml(item.tab)}</strong>
-            <small>${escapeHtml(item.category)}</small>
-          </span>
-        </button>
-      `).join('');
+  // Cases com foto + contexto. O foco é comunicar tipo de atuação, sem sugerir contratação direta.
+  const cases = [
+    {
+      id: 'construcao',
+      tab: 'Construção',
+      kicker: 'CONSTRUÇÃO & INCORPORAÇÃO',
+      title: 'Tecnologia conectada à rotina da obra.',
+      image: 'assets/portfolio/construcao-campo.webp',
+      imageAlt: 'Profissional acompanhando uma obra com notebook, capacete e colete de segurança',
+      imagePosition: 'center 34%',
+      badge: 'Leitura de campo + processo + sistema',
+      challenge: 'Conectar planejamento, suprimentos, execução, medições e informações gerenciais sem transformar o ERP em apenas um repositório de lançamentos.',
+      action: 'Mapeamento de fluxo, governança de sistemas, integração entre áreas, estruturação de indicadores e acompanhamento da aderência operacional.',
+      value: 'Mais rastreabilidade, menor dependência de controles paralelos e maior capacidade de gestão sobre custos, prazo e execução.',
+      tech: ['Sienge', 'Prevision', 'Mobuss', 'Power BI', 'SQL']
+    },
+    {
+      id: 'processos',
+      tab: 'Processos',
+      kicker: 'PROCESSOS & GOVERNANÇA',
+      title: 'Antes de automatizar, entender o que realmente acontece.',
+      image: 'assets/portfolio/processos-vidro.webp',
+      imageAlt: 'Gustavo Farias desenhando um fluxo de processo em uma parede de vidro',
+      imagePosition: '58% center',
+      badge: 'AS IS → TO BE → governança',
+      challenge: 'Processos informais, aprovações dispersas, retrabalho, tarefas fora do sistema e conhecimento concentrado em poucas pessoas.',
+      action: 'Levantamento AS IS, desenho TO BE, definição de papéis, regras, critérios de aceite, fluxos e matriz de responsabilidades.',
+      value: 'Processos mais claros, decisões mais rápidas e tecnologia aplicada sobre uma rotina previamente organizada.',
+      tech: ['BPMN', 'RACI', 'Lean', 'SOP', 'Governança']
+    },
+    {
+      id: 'erp',
+      tab: 'ERP / WMS',
+      kicker: 'SISTEMAS CORPORATIVOS',
+      title: 'Do sistema contratado ao sistema utilizado.',
+      image: 'assets/portfolio/treinamento-sankhya.webp',
+      imageAlt: 'Treinamento corporativo de sistema ERP com equipe em sala de apresentação',
+      imagePosition: 'center center',
+      badge: 'Implantação + homologação + adoção',
+      challenge: 'Sistemas com baixa aderência, funcionalidades subutilizadas, parametrizações desconectadas da operação e fornecedores sem uma governança única.',
+      action: 'Requisitos, priorização, testes, homologação, gestão de fornecedores, implantação, treinamento e acompanhamento pós-go-live.',
+      value: 'Maior utilização do ERP/WMS, redução de retrabalho e melhor conexão entre o processo real e a solução tecnológica.',
+      tech: ['Sankhya', 'Sienge', 'WMS Senior', 'Integrações', 'PMO']
+    },
+    {
+      id: 'dados',
+      tab: 'Dados & BI',
+      kicker: 'DADOS PARA DECISÃO',
+      title: 'Indicadores que explicam a operação, não apenas a decoram.',
+      image: 'assets/portfolio/hero-dashboard.webp',
+      imageAlt: 'Apresentação executiva de indicadores financeiros e operacionais em dashboard',
+      imagePosition: '52% center',
+      badge: 'Dado confiável → decisão executiva',
+      challenge: 'Relatórios divergentes, indicadores sem regra única, conferências manuais e baixa confiança da liderança na informação disponível.',
+      action: 'Estruturação de regras de cálculo, dicionário de KPIs, consultas SQL, automações e dashboards conectados às decisões de negócio.',
+      value: 'Mais previsibilidade, menor tempo de consolidação e uma fonte de informação mais confiável para a gestão.',
+      tech: ['Power BI', 'DAX', 'SQL', 'Python', 'APIs']
+    },
+    {
+      id: 'adocao',
+      tab: 'Adoção',
+      kicker: 'PESSOAS & GESTÃO DA MUDANÇA',
+      title: 'Tecnologia só gera valor quando a rotina muda.',
+      image: 'assets/portfolio/adocao-equipe.webp',
+      imageAlt: 'Treinamento com equipe em ambiente corporativo',
+      imagePosition: 'center center',
+      badge: 'Treinamento + material + suporte',
+      challenge: 'Usuários inseguros, processos executados de formas diferentes e conhecimento operacional dependente de treinamento informal.',
+      action: 'Trilhas, manuais, universidade corporativa, workshops, treinamento por processo e acompanhamento da adoção.',
+      value: 'Padronização, menor curva de aprendizagem e maior sustentabilidade das mudanças implantadas.',
+      tech: ['Universidade Corporativa', 'Treinamentos', 'SOP', 'Gestão da Mudança']
+    },
+    {
+      id: 'pmo',
+      tab: 'PMO',
+      kicker: 'GESTÃO & EXECUÇÃO',
+      title: 'Prioridade, fornecedor e resultado sob a mesma governança.',
+      image: 'assets/portfolio/pmo-executivo.webp',
+      imageAlt: 'Reunião executiva para discussão de iniciativas e prioridades de sistemas',
+      imagePosition: 'center center',
+      badge: 'Portfólio + prioridades + execução',
+      challenge: 'Demandas concorrentes, custos pouco visíveis, projetos sem critério uniforme e dependência de diferentes fornecedores de tecnologia.',
+      action: 'Portfólio, priorização, rituais executivos, cronogramas, riscos, critérios de aceite, custos e acompanhamento de fornecedores.',
+      value: 'Mais clareza sobre o que deve ser feito, por quem, em qual ordem e com qual resultado esperado.',
+      tech: ['PMO', 'Roadmap', 'Riscos', 'Fornecedores', 'Governança']
     }
+  ];
 
-    function renderPanel() {
-      const item = cases[activeIndex];
-      panel.style.setProperty('--case-accent', item.accent);
-      panel.style.setProperty('--logo-bg', item.logoBg);
-      panel.setAttribute('aria-labelledby', `case-tab-${item.id}`);
-      panel.innerHTML = `
-        <div class="case-panel-side">
-          <div class="company-logo-large" style="--logo-bg:${escapeHtml(item.logoBg)}">
-            <img src="${escapeHtml(item.logo)}" alt="${escapeHtml(item.logoAlt)}" width="1200" height="400" decoding="async">
-          </div>
-          <div class="company-context">
-            <small>${escapeHtml(item.evidence)}</small>
-            <h3>${escapeHtml(item.name)}</h3>
-            <p>${escapeHtml(item.summary)}</p>
-          </div>
-        </div>
-        <div class="case-panel-content">
-          <header>
-            <h4>${escapeHtml(item.headline)}</h4>
-            <span class="case-index">${String(activeIndex + 1).padStart(2, '0')}</span>
-          </header>
-          <div class="case-story">
-            <article><span>Desafio</span><p>${escapeHtml(item.challenge)}</p></article>
-            <article><span>Atuação</span><p>${escapeHtml(item.action)}</p></article>
-            <article><span>Valor aplicado</span><p>${escapeHtml(item.result)}</p></article>
-          </div>
-          <div class="case-highlights">
-            ${item.highlights.map(([value, label]) => `<div><strong>${escapeHtml(value)}</strong><small>${escapeHtml(label)}</small></div>`).join('')}
-          </div>
-          <div class="case-skills">
-            <strong>Capacidades e tecnologias aplicadas</strong>
-            <div class="case-skill-list">${item.skills.map((skill) => `<span>${escapeHtml(skill)}</span>`).join('')}</div>
-          </div>
-        </div>
-      `;
-    }
+  const caseTabs = $('#caseTabs');
+  const casePanel = $('#casePanel');
 
-    function selectCase(index, focus = false) {
-      if (!Number.isInteger(index) || index < 0 || index >= cases.length) return;
-      activeIndex = index;
-      renderPanel();
+  const renderCase = (index, focusPanel = false) => {
+    if (!caseTabs || !casePanel) return;
+    const item = cases[index];
 
-      $$('.case-tab', tabs).forEach((tab, tabIndex) => {
-        const selected = tabIndex === activeIndex;
-        tab.setAttribute('aria-selected', String(selected));
-        tab.tabIndex = selected ? 0 : -1;
-      });
-
-      if (focus) $$('.case-tab', tabs)[activeIndex]?.focus();
-    }
-
-    tabs.addEventListener('click', (event) => {
-      const tab = event.target.closest('[data-index]');
-      if (!tab) return;
-      selectCase(Number(tab.dataset.index));
+    $$('.case-tab', caseTabs).forEach((tab, tabIndex) => {
+      tab.setAttribute('aria-selected', String(tabIndex === index));
+      tab.tabIndex = tabIndex === index ? 0 : -1;
     });
 
-    tabs.addEventListener('keydown', (event) => {
-      const keys = ['ArrowLeft', 'ArrowRight', 'Home', 'End'];
-      if (!keys.includes(event.key)) return;
+    casePanel.setAttribute('aria-labelledby', `case-tab-${item.id}`);
+    casePanel.innerHTML = `
+      <div class="case-panel-inner">
+        <div class="case-visual">
+          <img src="${item.image}" alt="${item.imageAlt}" loading="lazy" decoding="async" style="object-position:${item.imagePosition}">
+          <span class="case-visual-badge">${item.badge}</span>
+        </div>
+        <div class="case-content">
+          <span class="case-kicker">${item.kicker}</span>
+          <h3>${item.title}</h3>
+          <div class="case-facts">
+            <div class="case-fact"><small>DESAFIO</small><p>${item.challenge}</p></div>
+            <div class="case-fact"><small>ATUAÇÃO</small><p>${item.action}</p></div>
+            <div class="case-fact"><small>VALOR APLICADO</small><p>${item.value}</p></div>
+          </div>
+          <div class="case-tech">${item.tech.map(tech => `<span>${tech}</span>`).join('')}</div>
+        </div>
+      </div>`;
+
+    if (focusPanel) casePanel.focus({ preventScroll: true });
+  };
+
+  if (caseTabs && casePanel) {
+    cases.forEach((item, index) => {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'case-tab';
+      button.id = `case-tab-${item.id}`;
+      button.setAttribute('role', 'tab');
+      button.setAttribute('aria-controls', 'casePanel');
+      button.setAttribute('aria-selected', String(index === 0));
+      button.tabIndex = index === 0 ? 0 : -1;
+      button.textContent = item.tab;
+      button.addEventListener('click', () => renderCase(index));
+      button.addEventListener('keydown', (event) => {
+        if (!['ArrowRight', 'ArrowLeft', 'Home', 'End'].includes(event.key)) return;
+        event.preventDefault();
+        const tabs = $$('.case-tab', caseTabs);
+        const current = tabs.indexOf(event.currentTarget);
+        let next = current;
+        if (event.key === 'ArrowRight') next = (current + 1) % tabs.length;
+        if (event.key === 'ArrowLeft') next = (current - 1 + tabs.length) % tabs.length;
+        if (event.key === 'Home') next = 0;
+        if (event.key === 'End') next = tabs.length - 1;
+        tabs[next].focus();
+        renderCase(next);
+      });
+      caseTabs.appendChild(button);
+    });
+    renderCase(0);
+  }
+
+  // Links internos: compensa header sticky em navegadores onde scroll-margin não basta.
+  $$('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', (event) => {
+      const id = link.getAttribute('href');
+      if (!id || id === '#') return;
+      const target = $(id);
+      if (!target) return;
       event.preventDefault();
-
-      if (event.key === 'Home') return selectCase(0, true);
-      if (event.key === 'End') return selectCase(cases.length - 1, true);
-      const direction = event.key === 'ArrowRight' ? 1 : -1;
-      const next = (activeIndex + direction + cases.length) % cases.length;
-      selectCase(next, true);
+      const headerHeight = $('.site-header')?.offsetHeight || 0;
+      const top = target.getBoundingClientRect().top + window.scrollY - headerHeight - 10;
+      window.scrollTo({ top, behavior: reduceMotion ? 'auto' : 'smooth' });
+      history.replaceState(null, '', id);
     });
-
-    renderTabs();
-    renderPanel();
-  }
-
-  /* Ano */
-  const year = $('#currentYear');
-  if (year) year.textContent = String(new Date().getFullYear());
+  });
 })();
