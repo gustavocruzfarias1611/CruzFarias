@@ -12,10 +12,12 @@
   const menuToggle = $('#menuToggle');
   const mobileMenu = $('#mobileMenu');
 
-  const closeMenu = () => {
+  const closeMenu = ({ restoreFocus = false } = {}) => {
     if (!menuToggle || !mobileMenu) return;
     menuToggle.setAttribute('aria-expanded', 'false');
     mobileMenu.hidden = true;
+    document.body.classList.remove('nav-open');
+    if (restoreFocus) menuToggle.focus();
   };
 
   if (menuToggle && mobileMenu) {
@@ -23,9 +25,16 @@
       const isOpen = menuToggle.getAttribute('aria-expanded') === 'true';
       menuToggle.setAttribute('aria-expanded', String(!isOpen));
       mobileMenu.hidden = isOpen;
+      document.body.classList.toggle('nav-open', !isOpen);
     });
 
-    $$('a', mobileMenu).forEach(link => link.addEventListener('click', closeMenu));
+    $$('a', mobileMenu).forEach(link => link.addEventListener('click', () => closeMenu()));
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && menuToggle.getAttribute('aria-expanded') === 'true') {
+        closeMenu({ restoreFocus: true });
+      }
+    });
 
     window.addEventListener('resize', () => {
       if (window.innerWidth > 1180) closeMenu();
@@ -35,6 +44,7 @@
   // Barra de progresso e botão de voltar ao topo
   const progress = $('#scrollProgress');
   const backTop = $('#backTop');
+  const siteHeader = $('.site-header');
 
   const updateScrollUI = () => {
     const doc = document.documentElement;
@@ -42,6 +52,7 @@
     const ratio = scrollable > 0 ? (doc.scrollTop / scrollable) : 0;
     if (progress) progress.style.width = `${Math.min(100, Math.max(0, ratio * 100))}%`;
     if (backTop) backTop.classList.toggle('is-visible', doc.scrollTop > 700);
+    if (siteHeader) siteHeader.classList.toggle('is-scrolled', doc.scrollTop > 24);
   };
 
   updateScrollUI();
@@ -66,14 +77,26 @@
     revealItems.forEach(el => observer.observe(el));
   }
 
-  // WhatsApp: preserva o número e injeta mensagem sem quebrar o link
+  // WhatsApp: preserva o número e injeta a mensagem contextual.
   $$('[data-whatsapp]').forEach(link => {
-    link.addEventListener('click', (event) => {
-      const message = link.dataset.message;
-      if (!message) return;
-      const base = 'https://wa.me/5516991940396';
-      link.href = `${base}?text=${encodeURIComponent(message)}`;
-    });
+    const message = link.dataset.message;
+    if (!message) return;
+    const base = 'https://wa.me/5516991940396';
+    link.href = `${base}?text=${encodeURIComponent(message)}`;
+  });
+
+  // Diagnóstico: adiciona origem do CTA para medir quais pontos da página convertem melhor.
+  $$('[data-diagnostic]').forEach(link => {
+    try {
+      const url = new URL(link.href, window.location.href);
+      url.searchParams.set('utm_source', 'cruzfarias.com.br');
+      url.searchParams.set('utm_medium', 'site');
+      url.searchParams.set('utm_campaign', 'diagnostico_conecta');
+      url.searchParams.set('utm_content', link.dataset.placement || 'site');
+      link.href = url.toString();
+    } catch (_) {
+      // Mantém o href original se o navegador não conseguir construir a URL.
+    }
   });
 
   // Cases com foto + contexto. O foco é comunicar tipo de atuação, sem sugerir contratação direta.
@@ -153,8 +176,8 @@
       tab: 'PMO',
       kicker: 'GESTÃO & EXECUÇÃO',
       title: 'Prioridade, fornecedor e resultado sob a mesma governança.',
-      image: 'assets/portfolio/pmo-executivo.webp',
-      imageAlt: 'Reunião executiva para discussão de iniciativas e prioridades de sistemas',
+      image: 'assets/portfolio/reuniao-solucao.webp',
+      imageAlt: 'Reunião de trabalho para discussão de prioridades, indicadores e tomada de decisão',
       imagePosition: 'center center',
       badge: 'Portfólio + prioridades + execução',
       challenge: 'Demandas concorrentes, custos pouco visíveis, projetos sem critério uniforme e dependência de diferentes fornecedores de tecnologia.',
@@ -227,6 +250,35 @@
     });
     renderCase(0);
   }
+
+  // Navegação ativa: ajuda o visitante a entender em que parte da narrativa está.
+  const navLinks = $$('.desktop-nav a[href^="#"]');
+  const navTargets = navLinks
+    .map(link => ({ link, target: $(link.getAttribute('href')) }))
+    .filter(item => item.target);
+
+  if ('IntersectionObserver' in window && navTargets.length) {
+    const navObserver = new IntersectionObserver((entries) => {
+      const visible = entries
+        .filter(entry => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (!visible) return;
+      navTargets.forEach(item => item.link.classList.toggle('is-active', item.target === visible.target));
+    }, { rootMargin: '-25% 0px -62% 0px', threshold: [0, .1, .35, .6] });
+
+    navTargets.forEach(item => navObserver.observe(item.target));
+  }
+
+  // FAQ: mantém a leitura limpa abrindo uma resposta por vez.
+  const faqDetails = $$('.faq-list details');
+  faqDetails.forEach(detail => {
+    detail.addEventListener('toggle', () => {
+      if (!detail.open) return;
+      faqDetails.forEach(other => {
+        if (other !== detail) other.open = false;
+      });
+    });
+  });
 
   // Links internos: compensa header sticky em navegadores onde scroll-margin não basta.
   $$('a[href^="#"]').forEach(link => {
