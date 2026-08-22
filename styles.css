@@ -1062,3 +1062,31 @@ main > section:not(.hero):not(.proof-strip) { content-visibility:auto; contain-i
     aspect-ratio: 4 / 3;
   }
 }
+
+
+/* ===== Lapidação 10/10: conversão, autoridade e leitura ===== */
+.hero-microcopy {
+  margin: -4px 0 18px;
+  font-size: .82rem;
+  line-height: 1.45;
+  color: rgba(255,255,255,.68);
+  letter-spacing: .01em;
+}
+.hero-actions .button-primary, .final-actions .button-primary {
+  box-shadow: 0 12px 32px rgba(188, 150, 73, .18);
+}
+.proof-grid article strong {
+  font-variant-numeric: tabular-nums;
+}
+.case-fact:last-child {
+  position: relative;
+}
+.case-fact:last-child small {
+  letter-spacing: .09em;
+}
+@media (max-width: 760px) {
+  .hero-microcopy { margin-top: -2px; font-size: .78rem; }
+  .hero-actions .button { width: 100%; justify-content: center; text-align: center; }
+  .final-actions .button { width: 100%; justify-content: center; text-align: center; }
+  .proof-note { max-width: 34rem; }
+}
