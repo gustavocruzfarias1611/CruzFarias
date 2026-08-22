@@ -177,9 +177,11 @@
     });
 
     casePanel.setAttribute('aria-labelledby', `case-tab-${item.id}`);
+    const fullPhotoClass = item.id === 'adocao' ? ' case-visual-show-full' : '';
+
     casePanel.innerHTML = `
       <div class="case-panel-inner">
-        <div class="case-visual">
+        <div class="case-visual${fullPhotoClass}">
           <img src="${item.image}" alt="${item.imageAlt}" loading="lazy" decoding="async" style="object-position:${item.imagePosition}">
           <span class="case-visual-badge">${item.badge}</span>
         </div>
