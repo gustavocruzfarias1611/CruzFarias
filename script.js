@@ -212,7 +212,7 @@
           <div class="case-facts">
             <div class="case-fact"><small>DESAFIO</small><p>${item.challenge}</p></div>
             <div class="case-fact"><small>ATUAÇÃO</small><p>${item.action}</p></div>
-            <div class="case-fact"><small>VALOR APLICADO</small><p>${item.value}</p></div>
+            <div class="case-fact"><small>IMPACTO OPERACIONAL</small><p>${item.value}</p></div>
           </div>
           <div class="case-tech">${item.tech.map(tech => `<span>${tech}</span>`).join('')}</div>
         </div>
