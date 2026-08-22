@@ -1024,3 +1024,41 @@ main > section:not(.hero):not(.proof-strip) { content-visibility:auto; contain-i
   .method-photo { min-height:0; aspect-ratio:3/2; }
   .method-photo img { width:100%; height:100%; min-height:0; object-fit:cover; object-position:center; }
 }
+
+
+/* ==========================================================
+   FOTOS OPERACIONAIS — AJUSTE 21/08/2026
+   As novas imagens foram produzidas em 4:3 para encaixar
+   integralmente nos cards, evitando faixas e cortes agressivos.
+   ========================================================== */
+.practice-photo-card img {
+  object-fit: cover;
+  object-position: center center;
+}
+
+.hero-photo-card img {
+  object-position: center center;
+}
+
+@media (min-width: 681px) {
+  .practice-photo-card {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+/* O workshop do Método também é 4:3 e deve mostrar a equipe completa. */
+.method-photo {
+  aspect-ratio: 4 / 3;
+}
+.method-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+@media (min-width:1181px) {
+  .method-photo {
+    aspect-ratio: 4 / 3;
+  }
+}
